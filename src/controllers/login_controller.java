@@ -13,7 +13,7 @@ import utils.DBHelper;
 
 import java.sql.Connection;
 
-public class Controller {
+public class login_controller {
     @FXML private Button btnClose;
     @FXML private Button btnLogin;
     @FXML private ToolBar toolBar;
@@ -51,7 +51,7 @@ public class Controller {
         if(test != null){
             System.out.println("Rana bien");
         } else {
-            System.out.println("Raha menyouka");
+            System.out.println("Raha m9awda");
         }
     }
 }

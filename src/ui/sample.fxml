@@ -14,7 +14,7 @@
 
 <BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed"
             prefHeight="250" prefWidth="400" xmlns="http://javafx.com/javafx/null"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.login_controller">
     <center>
         <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
             <children>

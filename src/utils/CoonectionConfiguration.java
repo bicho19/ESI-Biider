@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class CoonectionConfiguration {
     private final static String DBUSER = "root";
-    private final static String DBPASS = "root19";
+    private final static String DBPASS = "root";
     private final static String DBNAME = "esisba";
 
 
