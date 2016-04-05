@@ -1,6 +1,7 @@
 package utils;
 
 
+import entities.Admin;
 import entities.User;
 import javafx.scene.image.Image;
 
@@ -205,5 +206,49 @@ public class DBHelper {
         return binaryStream;
     }
 
+    public Admin checkLoginAdmin(Admin admin){
+        Admin admin1 = new Admin();
+        connect = CoonectionConfiguration.getConnection();
+        try {
+            preparedStatement = connect.prepareStatement("SELECT * FROM admins WHERE username = ? AND password = ?");
+            preparedStatement.setString(1,admin.getUsername());
+            preparedStatement.setString(2,admin.getPassword());
+            resultSet = preparedStatement.executeQuery();
+            if(resultSet.isBeforeFirst()){
+                while (resultSet.next()){
+                    admin1.setUsername(resultSet.getString("username"));
+                }
+            } else {
+                admin1 = null;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(resultSet != null){
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(preparedStatement != null){
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(connect != null){
+                try {
+                    connect.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return admin1;
+
+    }
 }
 

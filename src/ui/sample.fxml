@@ -18,19 +18,21 @@
     <center>
         <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
             <children>
-                <TextField promptText="Username">
+                <TextField fx:id="usernameField" promptText="Username">
                     <VBox.margin>
                         <Insets left="40.0" right="40.0" />
                     </VBox.margin>
                 </TextField>
-                <PasswordField fx:id="textfield" prefHeight="35" prefWidth="150" promptText="Password">
+                <PasswordField fx:id="passwordField" prefHeight="35" prefWidth="150" promptText="Password">
                     <VBox.margin>
                         <Insets left="40.0" right="40.0" />
                     </VBox.margin>
                 </PasswordField>
                 <HBox alignment="CENTER_LEFT" fillHeight="false">
                     <children>
-                        <Button fx:id="btnLogin" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="LOGIN">
+                        <Button fx:id="btnLogin" mnemonicParsing="false"
+                                prefHeight="25.0" prefWidth="100.0" text="LOGIN"
+                                onAction="#handleLogin">
                             <HBox.margin>
                                 <Insets left="40" />
                             </HBox.margin>
