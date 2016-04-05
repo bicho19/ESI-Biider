@@ -1,10 +1,10 @@
 .root{
-    -fx-background-image: url("../images/image.jpg");
+    -fx-background-image: url("/ui/images/image.jpg");
     -fx-background-size: auto;
 }
 
 .tool-bar{
-    -fx-background-image: url("../images/image.jpg");
+    -fx-background-image: url("/ui/images/image.jpg");
     -fx-background-size: auto;
 }
 
