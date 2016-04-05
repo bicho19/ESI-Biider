@@ -57,13 +57,13 @@
         <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" BorderPane.alignment="CENTER">
             <items>
                 <fx:define>
-                    <Image fx:id="btnImage" url="/ui/images/Close.png" />
+                    <Image fx:id="btnImage" url="/ui/images/close.png" />
                 </fx:define>
                 <Button fx:id="btnClose" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT">
                             <image>
-                                <Image url="/ui/images/Close.png" />
+                                <Image url="/ui/images/close.png" />
                             </image>
                         </ImageView>
                     </graphic>

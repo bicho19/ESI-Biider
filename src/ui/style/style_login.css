@@ -1,9 +1,4 @@
-.root{
-    -fx-background-image: url("/ui/images/image.jpg");
-    -fx-background-size: auto;
-}
-
-.tool-bar{
+.root, .tab-pane, .center, grid-pane{
     -fx-background-image: url("/ui/images/image.jpg");
     -fx-background-size: auto;
 }
