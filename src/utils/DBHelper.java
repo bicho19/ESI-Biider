@@ -7,6 +7,8 @@ import javafx.scene.image.Image;
 
 import java.io.InputStream;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper {
     private Connection connect = null;
@@ -115,7 +117,7 @@ public class DBHelper {
         user.setBirthDate(result.getString("birth_date"));
         user.setBirthPlace(result.getString("birth_place"));
         user.setAddress(result.getString("address"));
-        user.setPhoto(result.getBlob("photo"));
+        user.setFingerPrint(result.getBlob("finger_print"));
         return user;
     }
 
@@ -157,8 +159,9 @@ public class DBHelper {
         return user;
     }
 
-    public User getUserByName(String fName, String lName){
-        User user = new User();
+    public List<User> getUserByName(String fName, String lName){
+        ArrayList<User> result = new ArrayList<>();
+
         connect = CoonectionConfiguration.getConnection();
         try {
             preparedStatement = connect.prepareStatement("SELECT * FROM users WHERE first_name = ? AND last_name = ?");
@@ -166,7 +169,7 @@ public class DBHelper {
             preparedStatement.setString(2,lName);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                user = setUserFromResult(resultSet);
+                result.add(setUserFromResult(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -193,7 +196,158 @@ public class DBHelper {
                 }
             }
         }
-        return user;
+        return result;
+    }
+
+    public List<User> getUserByBirthPlace (String birthPlace){
+        ArrayList<User> result = new ArrayList<>();
+        connect = CoonectionConfiguration.getConnection();
+        try {
+            preparedStatement = connect.prepareStatement("SELECT * FROM users WHERE birth_place = ?");
+            preparedStatement.setString(1,birthPlace);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                result.add(setUserFromResult(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(resultSet != null){
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(preparedStatement != null){
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(connect != null){
+                try {
+                    connect.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
+    }
+
+    public List<User> getUserByBirthDate (String birthDate){
+        ArrayList<User> result = new ArrayList<>();
+        connect = CoonectionConfiguration.getConnection();
+        try {
+            preparedStatement = connect.prepareStatement("SELECT * FROM users WHERE birth_date = ?");
+            preparedStatement.setString(1,birthDate);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                result.add(setUserFromResult(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(resultSet != null){
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(preparedStatement != null){
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(connect != null){
+                try {
+                    connect.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
+    }
+
+    public List<User> getUserByAddress (String adr){
+        ArrayList<User> result = new ArrayList<>();
+        connect = CoonectionConfiguration.getConnection();
+        try {
+            preparedStatement = connect.prepareStatement("SELECT * FROM users WHERE address = ?");
+            preparedStatement.setString(1,adr);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                result.add(setUserFromResult(resultSet));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(resultSet != null){
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(preparedStatement != null){
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(connect != null){
+                try {
+                    connect.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
+    }
+
+    public void addUser (User user){
+        connect = CoonectionConfiguration.getConnection();
+        try {
+            preparedStatement = connect
+                    .prepareStatement("insert into  users (id, last_name, first_name, " +
+                            "birth_date, birth_place, address, finger_print) " +
+                            "values (?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement.setString(1,user.getId());
+            preparedStatement.setString(2,user.getLastName());
+            preparedStatement.setString(3,user.getFirstName());
+            preparedStatement.setString(4,user.getBirthDate());
+            preparedStatement.setString(5,user.getBirthPlace());
+            preparedStatement.setString(6,user.getAddress());
+            preparedStatement.setBlob(7,user.getFingerPrint());
+            preparedStatement.execute();
+            System.out.println("Person with the Id: "+user.getId()+"has been added to users");
+        } catch (SQLException e) {
+            System.err.println("Got an exception adding user!");
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null){
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(connect != null){
+                try {
+                    connect.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public InputStream getImageFromBlob(Blob blob){
