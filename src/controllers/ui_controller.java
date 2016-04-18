@@ -20,6 +20,8 @@ public class ui_controller {
     @FXML Button btnSupprimer = new Button() ;
     @FXML Button btnModifier = new Button() ;
     @FXML Button btnAjouter = new Button() ;
+    @FXML Button btnMinim = new Button();
+    @FXML Button btnMaxim = new Button();
 
     private double xOffset;
     private double yOffset;
@@ -42,6 +44,19 @@ public class ui_controller {
         Stage stage = (Stage) btnUiClose.getScene().getWindow();
         // do what you have to do
         stage.close();
+    }
+
+    @FXML void minimizeButton(){
+        Stage stage=(Stage) btnMinim.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML void maximizeButton(){
+        Stage stage=(Stage) btnMaxim.getScene().getWindow();
+        //Maximized
+        if (stage.isMaximized()){
+            stage.setMaximized(false);
+        }else stage.setMaximized(true);
     }
 
     @FXML

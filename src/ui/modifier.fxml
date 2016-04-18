@@ -20,7 +20,7 @@
                 <fx:define>
                     <Image fx:id="btnImage" url="/ui/images/close.png" />
                 </fx:define>
-                <Button fx:id="btnMaxim" alignment="TOP_RIGHT" mnemonicParsing="false">
+                <Button fx:id="btnMinim" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#minimizeButton">
                     <graphic>
                         <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                             <image>
@@ -29,7 +29,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="btnMinim" alignment="TOP_RIGHT" mnemonicParsing="false">
+                <Button fx:id="btnMaxim" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#maximizeButton">
                     <graphic>
                         <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                             <image>
