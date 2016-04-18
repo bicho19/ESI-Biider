@@ -1,14 +1,36 @@
 package controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToolBar;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import utils.Main;
 
 /**
  * Created by Creator on 05/04/2016.
  */
 public class ui_controller {
     @FXML Button btnUiClose = new Button();
+    @FXML private ToolBar toolBar;
+    private double xOffset;
+    private double yOffset;
+
+
+    @FXML private void setOnMousePressed(MouseEvent event){
+        xOffset = event.getSceneX();
+        yOffset = event.getSceneY();
+    }
+
+    @FXML private void setOnMouseDragged(MouseEvent event){
+        Stage stage = (Stage) toolBar.getScene().getWindow();
+        stage.setX(event.getScreenX() - xOffset);
+        stage.setY(event.getScreenY() - yOffset );
+    }
 
     @FXML
     private void closeButtonAction(){
@@ -16,5 +38,22 @@ public class ui_controller {
         Stage stage = (Stage) btnUiClose.getScene().getWindow();
         // do what you have to do
         stage.close();
+    }
+
+    @FXML
+    public void onAjouterAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/ajouter.fxml")));
+        Scene scene = new Scene(Main.getRoot());
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_ui.css").toExternalForm());
+
+        Stage primaryStage;
+        Stage stage = Main.getStage();
+
+        stage.setTitle("Hello World");
+        stage.setScene(scene);
+        stage.show();
+
+        Main.setStage(stage);
+
     }
 }

@@ -15,7 +15,6 @@ import java.sql.Connection;
 
 public class login_controller {
     @FXML private Button btnClose;
-    @FXML private Button btnLogin;
     @FXML private ToolBar toolBar;
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
@@ -48,10 +47,10 @@ public class login_controller {
         String pass_word = passwordField.getText();
         Admin admin = new Admin(user_name,pass_word);
         Admin test = dbHelper.checkLoginAdmin(admin);
-        if(test != null){
-            System.out.println("Rana bien");
-        } else {
-            System.out.println("Raha m9awda");
+        if ((user_name.equals("admin")) && (pass_word.equals("admin"))){
+            System.out.println("It's good");
+        }else {
+            System.out.println("not good");
         }
     }
 }
