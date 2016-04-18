@@ -1,3 +1,5 @@
+package utils;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,19 +9,42 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Main extends Application {
+    public static Parent getRoot() {
+        return root;
+    }
+
+    public static void setRoot(Parent root) {
+        Main.root = root;
+    }
+
+    private static Parent root;
+
+    public static Stage getStage() {
+        return stage;
+    }
+
+    public static void setStage(Stage stage) {
+        Main.stage = stage;
+    }
+
+    private static Stage stage;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("ui/sample.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/ui/ui_biider.fxml"));
         BorderPane borderPane = new BorderPane();
 
+
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("ui/style/style_login.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_ui.css").toExternalForm());
         primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        stage = primaryStage;
     }
 
 
