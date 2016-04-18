@@ -34,12 +34,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        root = FXMLLoader.load(getClass().getResource("/ui/rechercher.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/ui/login.fxml"));
         BorderPane borderPane = new BorderPane();
 
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_rechercher.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_login.css").toExternalForm());
         primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         primaryStage.setTitle("Hello World");

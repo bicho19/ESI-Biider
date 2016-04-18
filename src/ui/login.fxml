@@ -32,7 +32,7 @@
                     <children>
                         <Button fx:id="btnLogin" mnemonicParsing="false"
                                 prefHeight="25.0" prefWidth="100.0" text="LOGIN"
-                                onAction="#handleLogin">
+                                onAction="#handleLogin" defaultButton="true">
                             <HBox.margin>
                                 <Insets left="40" />
                             </HBox.margin>
