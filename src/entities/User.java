@@ -10,7 +10,7 @@ public class User {
     private String birthDate;
     private String birthPlace;
     private String address;
-    private Blob photo;
+    private Blob fingerPrint;
 
     public User(){}
 
@@ -32,8 +32,8 @@ public class User {
     public String getAddress() {return address;}
     public void setAddress(String address) {this.address = address;}
 
-    public Blob getPhoto() {return photo;}
-    public void setPhoto(Blob photo) {this.photo = photo;}
+    public Blob getFingerPrint() {return fingerPrint;}
+    public void setFingerPrint(Blob fingerprint) {this.fingerPrint = fingerprint;}
 
     @Override
     public String toString(){
