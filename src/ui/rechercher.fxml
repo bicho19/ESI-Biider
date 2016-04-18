@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ui_controller">
     <top>
@@ -59,42 +63,60 @@
             </children>
         </VBox>
     </left>
-    <center>
-        <GridPane id="gridpane" alignment="CENTER" prefHeight="289.0" prefWidth="348.0" BorderPane.alignment="CENTER">
-            <columnConstraints>
-                <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES" maxWidth="236.0" minWidth="10.0" prefWidth="195.0" />
-            <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES" maxWidth="236.0" minWidth="9.0" prefWidth="23.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="330.0" minWidth="10.0" prefWidth="228.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="330.0" minWidth="10.0" prefWidth="26.0" />
-            </columnConstraints>
-            <rowConstraints>
+   <center>
+      <AnchorPane prefHeight="303.0" prefWidth="470.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane layoutY="23.0" prefHeight="205.0" prefWidth="295.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="14.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="126.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="156.0" />
+              </columnConstraints>
+              <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <TextField prefHeight="25.0" prefWidth="172.0" promptText="ex: 123456" GridPane.columnIndex="2" />
-                <TextField promptText="ex: Ali Taleb " GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <TextField promptText="ex: Aymen" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                <TextField promptText="ex: 01/01/1995" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                <TextField promptText="ex: Sidi Bel Abbes" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                <TextField promptText="ex: Rue de ..." GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                <Button mnemonicParsing="false" text="Parcourir" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                <Label contentDisplay="RIGHT" text="ID:" />
-                <Label contentDisplay="RIGHT" text="Nom:" GridPane.rowIndex="1" />
-                <Label contentDisplay="RIGHT" text="Prenom:" GridPane.rowIndex="2" />
-                <Label contentDisplay="RIGHT" text="Date de naissance:" GridPane.rowIndex="3" />
-                <Label contentDisplay="RIGHT" text="Lieu de nassance:" GridPane.rowIndex="4" />
-                <Label contentDisplay="RIGHT" text="Adresse:" GridPane.rowIndex="5" />
-                <Label contentDisplay="RIGHT" text="Photo:" GridPane.rowIndex="6" />
-                <Button contentDisplay="RIGHT" mnemonicParsing="false" text="Ajouter" GridPane.rowIndex="7" />
-            </children>
-        </GridPane>
-    </center>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <CheckBox mnemonicParsing="false" text="ID" GridPane.columnIndex="1" />
+                  <CheckBox mnemonicParsing="false" text="First Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <CheckBox mnemonicParsing="false" text="Last Name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <CheckBox mnemonicParsing="false" text="Birth Date" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <CheckBox mnemonicParsing="false" text="Birth Place" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <CheckBox mnemonicParsing="false" text="Address" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField GridPane.columnIndex="2" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" />
+               </children>
+            </GridPane>
+            <Button layoutX="321.0" layoutY="68.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" text="Search By Photo" />
+            <Text layoutX="31.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By :" />
+            <Button layoutX="211.0" layoutY="239.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Search" />
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="131.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView layoutX="132.0" layoutY="7.0" prefHeight="148.0" prefWidth="470.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="75.0" text="First Name" />
+                  <TableColumn prefWidth="75.0" text="Last Name" />
+                  <TableColumn prefWidth="75.0" text="Birth Date" />
+                  <TableColumn prefWidth="75.0" text="Birth Place" />
+                  <TableColumn prefWidth="75.0" text="Address" />
+              </columns>
+            </TableView>
+            <ImageView fitHeight="100.0" fitWidth="89.0" layoutX="21.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
+            <Text layoutX="21.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image :" />
+         </children>
+      </AnchorPane>
+   </bottom>
 </BorderPane>
