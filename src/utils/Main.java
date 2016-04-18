@@ -2,9 +2,11 @@ package utils;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -32,12 +34,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        root = FXMLLoader.load(getClass().getResource("/ui/ui_biider.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/ui/rechercher.fxml"));
         BorderPane borderPane = new BorderPane();
 
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_ui.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_rechercher.css").toExternalForm());
         primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         primaryStage.setTitle("Hello World");
