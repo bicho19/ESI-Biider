@@ -1,0 +1,73 @@
+.root{
+    -fx-background-image: url("/ui/images/image.jpg");
+    -fx-background-size: auto;
+}
+
+.tool-bar, .tab, .tab-pane{
+    -fx-background-image: url("/ui/images/image.jpg");
+    -fx-background-size: auto;
+}
+
+.text-field{
+    -fx-text-fill: #C3BBC7;
+    -fx-border-radius: 10;
+    -fx-font-size: 15;
+    -fx-background-color: transparent;
+    -fx-border-color: #5E5165;
+    -fx-text-box-border: transparent;
+    -fx-border-left-property: none;
+    -fx-border-bottom: 1px, solid, #5E5165;
+    -fx-border-top: 1px, solid, #5E5165;
+}
+
+#btnLogin{
+    -fx-background-color: #9C9C9C;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+
+.button{
+    -fx-background-color: #9C9C9C;
+    -fx-spacing: 5px;
+    -fx-border-radius: 6px;
+    -fx-border-width: 2px;
+    -fx-border-color: #fff;
+    -fx-text-fill: #fff;
+    -fx-padding: 5px 5px 5px 5px;
+    -fx-font-size: 15px;
+}
+.label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#Biider{
+    -fx-text-fill: #C3BBC7;
+    -fx-font-size: 20px;
+}
+
+#btnUiClose, #btnMinim, #btnMaxim{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+#gridpane{
+    -fx-background-image: url("/ui/images/scene.png");
+    -fx-background-repeat: no-repeat;
+}
+
+#btnSupprimer:hover{
+    -fx-opacity: 0.5;
+}
+
+#btnSupprimer{
+    -fx-opacity: 0.5;
+}
+
+#btnAjouter,#btnRechercher,#btnSupprimer,#btnModifier{
+    -fx-background-image: url("/ui/images/button.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
