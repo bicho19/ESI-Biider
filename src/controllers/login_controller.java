@@ -1,23 +1,38 @@
 package controllers;
 
+import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.ds.buildin.natives.Device;
+import com.github.sarxos.webcam.ds.buildin.natives.DeviceList;
+import com.github.sarxos.webcam.ds.buildin.natives.OpenIMAJGrabber;
 import entities.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.stage.StageStyle;
+import org.bridj.Pointer;
 import utils.DBHelper;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
+import java.util.ResourceBundle;
 
-public class login_controller {
+public class login_controller implements Initializable{
     @FXML private Button btnClose;
     @FXML private ToolBar toolBar;
     @FXML private TextField usernameField;
@@ -70,5 +85,16 @@ public class login_controller {
         }else {
             System.out.println("not good");
         }
+    }
+
+    /**
+     * This method is called automatically after the java load the fxml file
+     * so we put our code that needs to be launched auto here;
+     * @param location
+     * @param resources
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
