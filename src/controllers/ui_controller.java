@@ -3,18 +3,23 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import utils.DBHelper;
 import utils.Main;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Created by Creator on 05/04/2016.
  */
-public class ui_controller {
+public class ui_controller implements Initializable{
     @FXML Button btnUiClose = new Button();
     @FXML private ToolBar toolBar;
     private double xOffset;
@@ -55,5 +60,11 @@ public class ui_controller {
 
         Main.setStage(stage);
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        DBHelper dbHelper = new DBHelper();
+        System.out.println(dbHelper.getUserById("ES2201141435013206"));
     }
 }

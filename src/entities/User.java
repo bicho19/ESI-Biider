@@ -1,7 +1,6 @@
 package entities;
 
-
-import java.sql.Blob;
+import java.util.ArrayList;
 
 public class User {
     private String id;
@@ -10,7 +9,8 @@ public class User {
     private String birthDate;
     private String birthPlace;
     private String address;
-    private Blob fingerPrint;
+    private String fingerPrint;
+    private ArrayList<String> photos = new ArrayList<>();
 
     public User(){}
 
@@ -32,12 +32,15 @@ public class User {
     public String getAddress() {return address;}
     public void setAddress(String address) {this.address = address;}
 
-    public Blob getFingerPrint() {return fingerPrint;}
-    public void setFingerPrint(Blob fingerprint) {this.fingerPrint = fingerprint;}
+    public String getFingerPrint() {return fingerPrint;}
+    public void setFingerPrint(String path) {fingerPrint = path;}
+
+    public ArrayList<String> getPhotos() {return photos;}
+    public void setPhotos(ArrayList<String> photos) {this.photos = photos;}
 
     @Override
     public String toString(){
-        return "Name : "+getFirstName()+" "+getLastName();
+        return "Name : "+getFirstName()+" "+getLastName()+ " "+photos.size();
     }
 
 }
