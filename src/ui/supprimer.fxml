@@ -12,7 +12,7 @@
 <?import javafx.scene.control.ToolBar?>
 <?import java.awt.Insets?>
 
-<BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="400.0" prefWidth="600.0"
+<BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ui_controller">
     <top>
         <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" BorderPane.alignment="CENTER">
@@ -20,7 +20,7 @@
                 <fx:define>
                     <Image fx:id="btnImage" url="/ui/images/close.png" />
                 </fx:define>
-                <Button fx:id="btnMaxim" alignment="TOP_RIGHT" mnemonicParsing="false">
+                <Button fx:id="btnMinim" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#minimizeButton">
                     <graphic>
                         <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                             <image>
@@ -29,7 +29,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="btnMinim" alignment="TOP_RIGHT" mnemonicParsing="false">
+                <Button fx:id="btnMaxim" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#maximizeButton">
                     <graphic>
                         <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                             <image>
@@ -53,11 +53,14 @@
     <left>
         <VBox id="vbox" alignment="TOP_CENTER" prefHeight="376.0" prefWidth="130.0" BorderPane.alignment="CENTER">
             <children>
-                <Button mnemonicParsing="false" prefHeight="50.0" id="buttonUI" prefWidth="130.0" text="Rechercher"/>
-                <Button mnemonicParsing="false" prefHeight="50.0" id="buttonUI" prefWidth="130.0" text="Ajouter"
-                        onAction="#onAjouterAction" />
-                <Button mnemonicParsing="false" prefHeight="50.0" id="buttonUI" prefWidth="130.0" text="Supprimer" />
-                <Button mnemonicParsing="false" prefHeight="50.0" id="buttonUI" prefWidth="130.0" text="Modifier" />
+                <Button mnemonicParsing="false" prefHeight="50.0" id="btnRechercher" prefWidth="130.0" text="Rechercher"
+                        onAction="#onRechercherAction" fx:id="btnRechercher"/>
+                <Button mnemonicParsing="false" prefHeight="50.0" id="btnAjouter" prefWidth="130.0" text="Ajouter"
+                        onAction="#onAjouterAction" fx:id="btnAjouter"/>
+                <Button mnemonicParsing="false" prefHeight="50.0" id="btnSupprimer" prefWidth="130.0" text="Supprimer"
+                        onAction="#onSupprimerAction" fx:id="btnSupprimer"/>
+                <Button mnemonicParsing="false" prefHeight="50.0" id="btnModifier" prefWidth="130.0" text="Modifier"
+                        onAction="#onModifierAction" fx:id="btnModifier"/>
             </children>
         </VBox>
     </left>
@@ -87,11 +90,6 @@
                 <TextField promptText="ex: Rue de ..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
                 <Button mnemonicParsing="false" text="Parcourir" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                 <Label contentDisplay="RIGHT" text="ID:" />
-                <Label contentDisplay="RIGHT" text="Nom:" GridPane.rowIndex="1" />
-                <Label contentDisplay="RIGHT" text="Prenom:" GridPane.rowIndex="2" />
-                <Label contentDisplay="RIGHT" text="Date de naissance:" GridPane.rowIndex="3" />
-                <Label contentDisplay="RIGHT" text="Lieu de nassance:" GridPane.rowIndex="4" />
-                <Label contentDisplay="RIGHT" text="Adresse:" GridPane.rowIndex="5" />
                 <Label contentDisplay="RIGHT" text="Photo:" GridPane.rowIndex="6" />
                 <Button contentDisplay="RIGHT" mnemonicParsing="false" text="Ajouter" GridPane.rowIndex="7" />
             </children>

@@ -20,24 +20,12 @@
     -fx-border-top: 1px, solid, #5E5165;
 }
 
-#buttonUI{
-    -fx-background-image: url("/ui/images/button.png");
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-}
-
-#buttonUI:hover{
-    -fx-opacity: 0.5;
-}
 #btnLogin{
     -fx-background-color: #9C9C9C;
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
 
-#btnLogin:hover{
-    -fx-opacity: 0.9;
-}
 
 .button{
     -fx-background-color: #9C9C9C;
@@ -68,4 +56,18 @@
 #gridpane{
     -fx-background-image: url("/ui/images/scene.png");
     -fx-background-repeat: no-repeat;
+}
+
+#btnSupprimer:hover{
+    -fx-opacity: 0.5;
+}
+
+#btnSupprimer{
+    -fx-opacity: 0.5;
+}
+
+#btnAjouter,#btnRechercher,#btnSupprimer,#btnModifier{
+    -fx-background-image: url("/ui/images/button.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
