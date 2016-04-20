@@ -21,27 +21,29 @@
     <top>
         <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" BorderPane.alignment="CENTER">
             <items>
-                <fx:define>
-                    <Image fx:id="btnImage" url="/ui/images/close.png" />
-                </fx:define>
-                <Button fx:id="btnMinim" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#minimizeButton">
-                    <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
-                            <image>
-                                <Image url="/ui/images/minim.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Button fx:id="btnUiClose" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
-                    <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
-                            <image>
-                                <Image url="/ui/images/close.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
+                <Pane>
+                    <fx:define>
+                        <Image fx:id="btnImage" url="/ui/images/close.png" />
+                    </fx:define>
+                    <Button LayoutX="729" fx:id="btnMinim" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#minimizeButton">
+                        <graphic>
+                            <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                                <image>
+                                    <Image url="/ui/images/minim.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button LayoutX="754" fx:id="btnUiClose" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
+                        <graphic>
+                            <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                                <image>
+                                    <Image url="/ui/images/close.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </Pane>
             </items>
         </ToolBar>
     </top>
