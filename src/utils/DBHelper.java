@@ -111,26 +111,32 @@ public class DBHelper {
     }
 
     public User setUserFromResult(ResultSet result) throws SQLException {
-        User user = new User();user.setId(result.getString("id"));
+        User user = new User();
+        ArrayList<String> pics = new ArrayList<>();
+        user.setId(result.getString("id"));
         user.setFirstName(result.getString("first_name"));
         user.setLastName(result.getString("last_name"));
         user.setBirthDate(result.getString("birth_date"));
         user.setBirthPlace(result.getString("birth_place"));
         user.setAddress(result.getString("address"));
-        user.setFingerPrint(result.getBlob("finger_print"));
+        user.setFingerPrint(result.getString("finger_print"));
         return user;
     }
 
     public User getUserById(String id){
         User user = new User();
         connect = CoonectionConfiguration.getConnection();
+        ArrayList<String> photos = new ArrayList<>();
         try {
-            preparedStatement = connect.prepareStatement("SELECT * FROM users WHERE id = ?");
+            preparedStatement = connect.
+                    prepareStatement("select *, user_photo from users, userphoto where users.id = userphoto.user_id and id = ?");
             preparedStatement.setString(1,id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 user = setUserFromResult(resultSet);
+                photos.add(resultSet.getString("user_photo"));
             }
+            user.setPhotos(photos);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -164,7 +170,8 @@ public class DBHelper {
 
         connect = CoonectionConfiguration.getConnection();
         try {
-            preparedStatement = connect.prepareStatement("SELECT * FROM users WHERE first_name = ? AND last_name = ?");
+            preparedStatement = connect.prepareStatement("SELECT *, user_photo from users, userphoto " +
+                                                         "where users.id = userphoto.user_id and first_name = ? and last_name = ?");
             preparedStatement.setString(1,fName);
             preparedStatement.setString(2,lName);
             resultSet = preparedStatement.executeQuery();
@@ -326,7 +333,12 @@ public class DBHelper {
             preparedStatement.setString(4,user.getBirthDate());
             preparedStatement.setString(5,user.getBirthPlace());
             preparedStatement.setString(6,user.getAddress());
-            preparedStatement.setBlob(7,user.getFingerPrint());
+
+            /* lazerm tkamal nomha;*/
+
+
+
+            //preparedStatement.setBinaryStream(7, user.getImgInputStream(user.getFingerPrint()));
             preparedStatement.execute();
             System.out.println("Person with the Id: "+user.getId()+"has been added to users");
         } catch (SQLException e) {
@@ -350,15 +362,6 @@ public class DBHelper {
         }
     }
 
-    public InputStream getImageFromBlob(Blob blob){
-        InputStream binaryStream = null;
-        try {
-            binaryStream = blob.getBinaryStream(0,blob.length());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return binaryStream;
-    }
 
     public Admin checkLoginAdmin(Admin admin){
         Admin admin1 = new Admin();
@@ -404,5 +407,6 @@ public class DBHelper {
         return admin1;
 
     }
+
 }
 
