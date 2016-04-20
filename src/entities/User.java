@@ -2,7 +2,7 @@ package entities;
 
 import java.util.ArrayList;
 
-public class User {
+public class User implements  Comparable{
     private String id;
     private String firstName;
     private String lastName;
@@ -41,6 +41,12 @@ public class User {
     @Override
     public String toString(){
         return "Name : "+getFirstName()+" "+getLastName()+ " "+photos.size();
+    }
+
+    @Override
+    public int compareTo(Object o){
+        User u = (User)o;
+        return this.id.compareTo(u.getId());
     }
 
 }
