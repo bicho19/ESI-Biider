@@ -1,6 +1,10 @@
-.root, .tab-pane, .center, grid-pane{
-    -fx-background-image: url("/ui/images/image.jpg");
-    -fx-background-size: auto;
+.root{
+    -fx-background-image: url("/ui/images/blue.png");
+    -fx-background-size: stretch;
+}
+
+.tool-bar{
+    -fx-background-color: transparent;
 }
 
 .text-field{
@@ -16,20 +20,20 @@
 }
 
 #btnLogin{
-    -fx-background-color: #9C9C9C;
+    -fx-background-color: rgba(255,255,255,0.01);
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
 
 #btnLogin:hover{
-    -fx-opacity: 0.9;
+    -fx-background-color: rgba(255,255,255,0.03);
 }
 
 .button{
     -fx-spacing: 10px;
     -fx-border-radius: 6px;
     -fx-border-width: 2px;
-    -fx-border-color: #fff;
+    -fx-border-color: rgba(255,255,255,0.1);
     -fx-text-fill: #fff;
     -fx-padding: 5px 5px 5px 5px;
     -fx-font-size: 15px;

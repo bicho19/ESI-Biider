@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.Pane?>
 <BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed"
             prefHeight="250" prefWidth="400" xmlns="http://javafx.com/javafx/null"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.login_controller">
@@ -54,25 +55,28 @@
         </VBox>
     </center>
     <top>
-        <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" BorderPane.alignment="CENTER">
+        <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed"
+                 BorderPane.alignment="TOP_RIGHT" style="-fx-tile-alignment: center">
             <items>
-                <fx:define>
-                    <Image fx:id="btnImage" url="/ui/images/close.png" />
-                </fx:define>
-                <Button fx:id="btnClose" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
-                    <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT">
-                            <image>
-                                <Image url="/ui/images/close.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Label fx:id="Biider" alignment="CENTER_LEFT" text="Biider">
-                    <HBox.margin>
-                        <Insets />
-                    </HBox.margin>
-                </Label>
+                <Pane>
+                    <Button fx:id="btnClose" onAction="#closeButtonAction" layoutX="354">
+                        <graphic>
+                            <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT">
+                                <image>
+                                    <Image url="/ui/images/close.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <fx:define>
+                        <Image fx:id="btnImage" url="/ui/images/close.png" />
+                    </fx:define>
+                    <Label fx:id="Biider" id="Biider" text="Biider" alignment="CENTER" layoutX="160">
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Label>
+                </Pane>
             </items>
             <BorderPane.margin>
                 <Insets bottom="0" left="0" right="0" top="0" />

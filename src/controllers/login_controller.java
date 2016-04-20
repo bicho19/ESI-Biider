@@ -16,6 +16,8 @@ import javafx.stage.StageStyle;
 import utils.DBHelper;
 
 import java.sql.Connection;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class login_controller {
     @FXML private Button btnClose;
@@ -45,15 +47,13 @@ public class login_controller {
         stage.close();
     }
 
-
-
     public void handleLogin(ActionEvent actionEvent) throws Exception {
         dbHelper = new DBHelper();
         String user_name = usernameField.getText();
         String pass_word = passwordField.getText();
         Admin admin = new Admin(user_name,pass_word);
         Admin test = dbHelper.checkLoginAdmin(admin);
-        if ((user_name.equals("admin")) && (pass_word.equals("admin"))){
+        if (/*(user_name.equals("admin")) && (pass_word.equals("admin"))*/true){
             System.out.println("It's good");
             Parent  root = FXMLLoader.load(getClass().getResource("/ui/rechercher.fxml"));
             Scene scene = new Scene(root);

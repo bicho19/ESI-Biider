@@ -1,11 +1,11 @@
 .root{
-    -fx-background-image: url("/ui/images/image.jpg");
-    -fx-background-size: auto;
+    -fx-background-image: url("/ui/images/blue.png");
+    -fx-background-size: stretch;
 }
 
 .tool-bar, .tab, .tab-pane{
-    -fx-background-image: url("/ui/images/image.jpg");
-    -fx-background-size: auto;
+    -fx-background-image: url("/ui/images/blue.png");
+    -fx-background-size: cover;
 }
 
 .text-field{
@@ -20,23 +20,18 @@
     -fx-border-top: 1px, solid, #5E5165;
 }
 
-#btnLogin{
-    -fx-background-color: #9C9C9C;
+.button{
+    -fx-background-color: rgba(255,255,255,0.01);
     -fx-font-weight: bold;
     -fx-text-fill: white;
-}
-
-
-.button{
-    -fx-background-color: #9C9C9C;
     -fx-spacing: 5px;
     -fx-border-radius: 6px;
     -fx-border-width: 2px;
     -fx-border-color: #fff;
-    -fx-text-fill: #fff;
     -fx-padding: 5px 5px 5px 5px;
     -fx-font-size: 15px;
 }
+
 .label {
     -fx-text-fill: white;
     -fx-font-weight: bold;
@@ -54,7 +49,6 @@
 }
 
 #gridpane{
-    -fx-background-image: url("/ui/images/scene.png");
     -fx-background-repeat: no-repeat;
 }
 
@@ -70,4 +64,10 @@
     -fx-background-image: url("/ui/images/button.png");
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+    -fx-background-repeat: round;
+
+}
+
+#vbox{
+    -fx-background-color: rgba(0,0,0,0.1);
 }

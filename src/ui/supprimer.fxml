@@ -29,15 +29,6 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="btnMaxim" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#maximizeButton">
-                    <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
-                            <image>
-                                <Image url="/ui/images/maxim.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
                 <Button fx:id="btnUiClose" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
                     <graphic>
                         <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
@@ -51,15 +42,15 @@
         </ToolBar>
     </top>
     <left>
-        <VBox id="vbox" alignment="TOP_CENTER" prefHeight="376.0" prefWidth="130.0" BorderPane.alignment="CENTER">
+        <VBox id="vbox" alignment="TOP_CENTER" prefHeight="376.0" prefWidth="180.0" BorderPane.alignment="CENTER">
             <children>
-                <Button mnemonicParsing="false" prefHeight="50.0" id="btnRechercher" prefWidth="130.0" text="Rechercher"
+                <Button mnemonicParsing="false" id="btnRechercher" prefHeight="70.0" prefWidth="180.0" text="Rechercher"
                         onAction="#onRechercherAction" fx:id="btnRechercher"/>
-                <Button mnemonicParsing="false" prefHeight="50.0" id="btnAjouter" prefWidth="130.0" text="Ajouter"
+                <Button mnemonicParsing="false"  id="btnAjouter" prefHeight="70.0" prefWidth="180.0" text="Ajouter"
                         onAction="#onAjouterAction" fx:id="btnAjouter"/>
-                <Button mnemonicParsing="false" prefHeight="50.0" id="btnSupprimer" prefWidth="130.0" text="Supprimer"
+                <Button mnemonicParsing="false"  id="btnSupprimer" prefHeight="70.0" prefWidth="180.0" text="Supprimer"
                         onAction="#onSupprimerAction" fx:id="btnSupprimer"/>
-                <Button mnemonicParsing="false" prefHeight="50.0" id="btnModifier" prefWidth="130.0" text="Modifier"
+                <Button mnemonicParsing="false" id="btnModifier" prefHeight="70.0" prefWidth="180.0" text="Modifier"
                         onAction="#onModifierAction" fx:id="btnModifier"/>
             </children>
         </VBox>

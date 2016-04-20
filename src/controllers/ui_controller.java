@@ -10,6 +10,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import utils.Main;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Created by Creator on 05/04/2016.
  */
@@ -39,7 +42,7 @@ public class ui_controller {
     }
 
     @FXML
-    private void closeButtonAction(){
+    private void closeButtonAction(ActionEvent actionEvent){
         // get a handle to the stage
         Stage stage = (Stage) btnUiClose.getScene().getWindow();
         // do what you have to do
@@ -51,71 +54,76 @@ public class ui_controller {
         stage.setIconified(true);
     }
 
-    @FXML void maximizeButton(){
-        Stage stage=(Stage) btnMaxim.getScene().getWindow();
-        //Maximized
-        if (stage.isMaximized()){
-            stage.setMaximized(false);
-        }else stage.setMaximized(true);
-    }
-
     @FXML
     public void onAjouterAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/ajouter.fxml")));
         Scene scene = new Scene(Main.getRoot());
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_ajouter.css").toExternalForm());
-        btnAjouter.setOpacity(0.5);
         Stage stage = Main.getStage();
-        stage.setTitle("Hrld");
+        Main.setStage(stage);
+
+        stage = (Stage) btnAjouter.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_ajouter.css").toExternalForm());
+        stage.setTitle("Ajouter");
         stage.setScene(scene);
         stage.show();
-        Main.setStage(stage);
+
     }
 
     @FXML
     public void onModifierAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/modifier.fxml")));
         Scene scene = new Scene(Main.getRoot());
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_modifier.css").toExternalForm());
-
-        Stage primaryStage;
         Stage stage = Main.getStage();
-        stage.setTitle("Hello World");
-        stage.setScene(scene);
-        stage.show();
-
         Main.setStage(stage);
-        btnModifier.setOpacity(0.9);
+
+        stage = (Stage) btnModifier.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_modifier.css").toExternalForm());
+        stage.setScene(scene);
+        stage.setTitle("Modifier");
+        stage.show();
 
     }
     @FXML
     public void onRechercherAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/rechercher.fxml")));
         Scene scene = new Scene(Main.getRoot());
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_rechercher.css").toExternalForm());
-
-        Stage primaryStage;
         Stage stage = Main.getStage();
+        Main.setStage(stage);
+
+        stage = (Stage) btnRechercher.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_rechercher.css").toExternalForm());
+        stage.setTitle("Rechercher");
         stage.setScene(scene);
         stage.show();
-        Main.setStage(stage);
-        btnRechercher.setOpacity(0.9);
 
     }
     @FXML
     public void onSupprimerAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/supprimer.fxml")));
         Scene scene = new Scene(Main.getRoot());
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_supprimer.css").toExternalForm());
-
-        Stage primaryStage;
         Stage stage = Main.getStage();
-        stage.setScene(scene);
-        stage.setTitle("Hello World");
-        stage.show();
-
         Main.setStage(stage);
-        btnSupprimer.setOpacity(0.9);
 
+        stage = (Stage) btnSupprimer.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_supprimer.css").toExternalForm());
+        stage.setTitle("Supprimer");
+        stage.setScene(scene);
+        stage.show();
     }
 }
