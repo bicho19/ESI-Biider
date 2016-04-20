@@ -8,15 +8,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import utils.Main;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Creator on 05/04/2016.
  */
 public class ui_controller {
     @FXML Button btnUiClose = new Button();
-    @FXML private ToolBar toolBar;
+    @FXML ToolBar toolBar;
+    @FXML Button btnRechercher = new Button() ;
+    @FXML Button btnSupprimer = new Button() ;
+    @FXML Button btnModifier = new Button() ;
+    @FXML Button btnAjouter = new Button() ;
+    @FXML Button btnMinim = new Button();
+    @FXML Button btnMaxim = new Button();
+
     private double xOffset;
     private double yOffset;
 
@@ -33,27 +42,88 @@ public class ui_controller {
     }
 
     @FXML
-    private void closeButtonAction(){
+    private void closeButtonAction(ActionEvent actionEvent){
         // get a handle to the stage
         Stage stage = (Stage) btnUiClose.getScene().getWindow();
         // do what you have to do
         stage.close();
     }
 
+    @FXML void minimizeButton(){
+        Stage stage=(Stage) btnMinim.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
     @FXML
     public void onAjouterAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/ajouter.fxml")));
         Scene scene = new Scene(Main.getRoot());
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_ui.css").toExternalForm());
-
-        Stage primaryStage;
         Stage stage = Main.getStage();
+        Main.setStage(stage);
 
-        stage.setTitle("Hello World");
+        stage = (Stage) btnAjouter.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_ajouter.css").toExternalForm());
+        stage.setTitle("Ajouter");
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    @FXML
+    public void onModifierAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/modifier.fxml")));
+        Scene scene = new Scene(Main.getRoot());
+        Stage stage = Main.getStage();
         Main.setStage(stage);
 
+        stage = (Stage) btnModifier.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_modifier.css").toExternalForm());
+        stage.setScene(scene);
+        stage.setTitle("Modifier");
+        stage.show();
+
+    }
+    @FXML
+    public void onRechercherAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/rechercher.fxml")));
+        Scene scene = new Scene(Main.getRoot());
+        Stage stage = Main.getStage();
+        Main.setStage(stage);
+
+        stage = (Stage) btnRechercher.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_rechercher.css").toExternalForm());
+        stage.setTitle("Rechercher");
+        stage.setScene(scene);
+        stage.show();
+
+    }
+    @FXML
+    public void onSupprimerAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/supprimer.fxml")));
+        Scene scene = new Scene(Main.getRoot());
+        Stage stage = Main.getStage();
+        Main.setStage(stage);
+
+        stage = (Stage) btnSupprimer.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_supprimer.css").toExternalForm());
+        stage.setTitle("Supprimer");
+        stage.setScene(scene);
+        stage.show();
     }
 }

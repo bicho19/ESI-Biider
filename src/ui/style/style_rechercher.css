@@ -1,42 +1,41 @@
 .root{
-    -fx-background-image: url("/ui/images/image.jpg");
-    -fx-background-size: auto;
+    -fx-background-image: url("/ui/images/blue.png");
+    -fx-background-size: stretch;
 }
 
 .tool-bar, .tab, .tab-pane{
-    -fx-background-image: url("/ui/images/image.jpg");
-    -fx-background-size: auto;
+    -fx-background-image: url("/ui/images/blue.png");
+    -fx-background-size: cover;
+}
+
+.table-view, .table-column{
+    -fx-background-color: rgba(255,255,255,0.3);
+    -fx-text-fill: #000000;
+
 }
 
 .text-field{
-    -fx-text-fill: #C3BBC7;
+    -fx-text-fill: #ffffff;
     -fx-border-radius: 10;
     -fx-font-size: 15;
     -fx-background-color: transparent;
-    -fx-border-color: #5E5165;
-    -fx-text-box-border: transparent;
-    -fx-border-left-property: none;
-    -fx-border-bottom: 1px, solid, #5E5165;
-    -fx-border-top: 1px, solid, #5E5165;
-}
-
-#btnLogin{
-    -fx-background-color: #9C9C9C;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
+    -fx-border-color: #ffffff;
+    -fx-opacity: 0.6;
 }
 
 .button{
-    -fx-background-color: #9C9C9C;
+    -fx-background-color: rgba(255,255,255,0.01);
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
     -fx-spacing: 5px;
     -fx-border-radius: 6px;
     -fx-border-width: 2px;
     -fx-border-color: #fff;
-    -fx-text-fill: #fff;
     -fx-padding: 5px 5px 5px 5px;
     -fx-font-size: 15px;
 }
-.label {
+
+.label{
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-font-size: 15px;
@@ -52,8 +51,7 @@
     -fx-border-color: transparent;
 }
 
-#gridpane{
-    -fx-background-image: url("/ui/images/scene.png");
+#anchorpane{
     -fx-background-repeat: no-repeat;
 }
 
@@ -69,4 +67,14 @@
     -fx-background-image: url("/ui/images/button.png");
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+    -fx-background-repeat: round;
+}
+
+.check-box{
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+#vbox{
+    -fx-background-color: rgba(0,0,0,0.1);
 }
