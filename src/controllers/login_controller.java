@@ -8,37 +8,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.ToolBar;
 import javafx.stage.StageStyle;
 import utils.DBHelper;
 
-import java.sql.Connection;
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class login_controller {
+public class login_controller extends communs{
     @FXML private Button btnClose;
-    @FXML private ToolBar toolBar;
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
-    @FXML private Button btnLogin = new Button();
-    private double xOffset;
-    private double yOffset;
+
     private DBHelper dbHelper;
 
-    @FXML private void setOnMousePressed(MouseEvent event){
-        xOffset = event.getSceneX();
-        yOffset = event.getSceneY();
-    }
-
-    @FXML private void setOnMouseDragged(MouseEvent event){
-        Stage stage = (Stage) toolBar.getScene().getWindow();
-        stage.setX(event.getScreenX() - xOffset);
-        stage.setY(event.getScreenY() - yOffset );
-    }
     @FXML
     private void closeButtonAction(){
         // get a handle to the stage
@@ -47,6 +28,7 @@ public class login_controller {
         stage.close();
     }
 
+    // Handle the login button and make the connection to the database
     public void handleLogin(ActionEvent actionEvent) throws Exception {
         dbHelper = new DBHelper();
         String user_name = usernameField.getText();

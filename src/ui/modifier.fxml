@@ -14,7 +14,7 @@
 
 <?import javafx.scene.layout.Pane?>
 <BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
-            xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ui_controller">
+            xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.modifier_controller">
     <top>
         <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" BorderPane.alignment="CENTER">
             <items>
