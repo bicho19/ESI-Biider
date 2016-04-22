@@ -9,13 +9,42 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
 <BorderPane fx:id="camRootPane" maxHeight="600.0" maxWidth="600.0" minHeight="600.0"
             minWidth="600.0" prefHeight="600.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.WebCam_Controller">
     <top>
+        <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" BorderPane.alignment="CENTER">
+            <items>
+                <Pane>
+                    <fx:define>
+                        <Image fx:id="btnImage" url="/ui/images/close.png" />
+                    </fx:define>
+                    <Button fx:id="btnMinim" LayoutX="729" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#minimizeButton">
+                        <graphic>
+                            <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                                <image>
+                                    <Image url="/ui/images/minim.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </Pane>
+            </items>
+        </ToolBar>
         <Pane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
+                <Button fx:id="btnUiClose" LayoutX="570" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
+                    <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                            <image>
+                                <Image url="/ui/images/close.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
                 <Label alignment="CENTER" layoutX="152.0" layoutY="12.0" text="Select Your Webcam Camera" />
                 <ComboBox fx:id="cameraOptions" layoutX="321.0" layoutY="8.0" prefWidth="150.0" promptText="Choose Camera" />
             </children>

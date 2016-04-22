@@ -4,7 +4,6 @@ import entities.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
@@ -15,15 +14,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.stage.StageStyle;
 import utils.DBHelper;
-import utils.IMGHelper;
 
-import java.net.URL;
 import java.sql.Connection;
-import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class login_controller implements Initializable {
+public class login_controller {
     @FXML private Button btnClose;
     @FXML private ToolBar toolBar;
     @FXML private TextField usernameField;
@@ -74,14 +70,5 @@ public class login_controller implements Initializable {
         }else {
             System.out.println("not good");
         }
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("TEsting face recognition ...");
-        IMGHelper imgHelper = new IMGHelper();
-        // Later add the directories and do your tests;
-        //imgHelper.getImgcp("src/photos/train","src/photos/cmp/mimi.jpg");
-        //imgHelper.imgComparie("src/photos/train","src/photos/cmp/mimi.jpg");
     }
 }

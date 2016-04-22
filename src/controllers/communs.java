@@ -10,13 +10,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import utils.Main;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 /**
- * Created by Creator on 05/04/2016.
+ * Created by Creator on 21/04/2016.
  */
-public class ui_controller {
+
+public class communs {
+
     @FXML Button btnUiClose = new Button();
     @FXML ToolBar toolBar;
     @FXML Button btnRechercher = new Button() ;
@@ -24,38 +23,34 @@ public class ui_controller {
     @FXML Button btnModifier = new Button() ;
     @FXML Button btnAjouter = new Button() ;
     @FXML Button btnMinim = new Button();
-    @FXML Button btnMaxim = new Button();
 
     private double xOffset;
     private double yOffset;
 
-
-    @FXML private void setOnMousePressed(MouseEvent event){
+    // These two methods helps to move the window from any place on the scene
+    @FXML public void setOnMousePressed(MouseEvent event){
         xOffset = event.getSceneX();
         yOffset = event.getSceneY();
     }
-
-    @FXML private void setOnMouseDragged(MouseEvent event){
+    @FXML public void setOnMouseDragged(MouseEvent event){
         Stage stage = (Stage) toolBar.getScene().getWindow();
         stage.setX(event.getScreenX() - xOffset);
         stage.setY(event.getScreenY() - yOffset );
     }
-
-    @FXML
-    private void closeButtonAction(ActionEvent actionEvent){
+    // These 2 method are obvious
+    @FXML public void closeButtonAction(ActionEvent actionEvent) throws Exception{
         // get a handle to the stage
+        // The Exception is for the overriding
         Stage stage = (Stage) btnUiClose.getScene().getWindow();
         // do what you have to do
         stage.close();
     }
-
-    @FXML void minimizeButton(){
+    @FXML public void minimizeButton(){
         Stage stage=(Stage) btnMinim.getScene().getWindow();
         stage.setIconified(true);
     }
-
-    @FXML
-    public void onAjouterAction(ActionEvent actionEvent) throws Exception {
+    // These 4 methods to change between the scenes
+    @FXML public void onAjouterAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/ajouter.fxml")));
         Scene scene = new Scene(Main.getRoot());
         Stage stage = Main.getStage();
@@ -72,9 +67,7 @@ public class ui_controller {
         stage.show();
 
     }
-
-    @FXML
-    public void onModifierAction(ActionEvent actionEvent) throws Exception {
+    @FXML public void onModifierAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/modifier.fxml")));
         Scene scene = new Scene(Main.getRoot());
         Stage stage = Main.getStage();
@@ -91,8 +84,7 @@ public class ui_controller {
         stage.show();
 
     }
-    @FXML
-    public void onRechercherAction(ActionEvent actionEvent) throws Exception {
+    @FXML public void onRechercherAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/rechercher.fxml")));
         Scene scene = new Scene(Main.getRoot());
         Stage stage = Main.getStage();
@@ -109,8 +101,7 @@ public class ui_controller {
         stage.show();
 
     }
-    @FXML
-    public void onSupprimerAction(ActionEvent actionEvent) throws Exception {
+    @FXML public void onSupprimerAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/supprimer.fxml")));
         Scene scene = new Scene(Main.getRoot());
         Stage stage = Main.getStage();
