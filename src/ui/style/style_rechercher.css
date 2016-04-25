@@ -1,32 +1,26 @@
-.root{
-    -fx-background-image: url("/ui/images/blue.png");
+.root {
+    -fx-background-color: #455A64;
     -fx-background-size: stretch;
 }
 
-.tool-bar, .tab, .tab-pane{
-    -fx-background-image: url("/ui/images/blue.png");
-    -fx-background-size: cover;
-}
-
 .table-view, .table-column{
-    -fx-background-color: rgba(255,255,255,0.3);
-    -fx-text-fill: #000000;
-
-}
+    -fx-background-color: #455A64;
+    -fx-text-fill: white;
+    -fx-opacity: 0.7;
+    }
 
 .text-field{
-    -fx-text-fill: #ffffff;
-    -fx-border-radius: 10;
+    -fx-text-fill: #455A64;
     -fx-font-size: 15;
-    -fx-background-color: transparent;
+    -fx-background-color: white;
     -fx-border-color: #ffffff;
-    -fx-opacity: 0.6;
+    -fx-opacity: 0.9;
 }
 
 .button{
-    -fx-background-color: rgba(255,255,255,0.01);
+    -fx-background-color: #FFFFFF;
     -fx-font-weight: bold;
-    -fx-text-fill: white;
+    -fx-text-fill: #455A64;
     -fx-spacing: 5px;
     -fx-border-radius: 6px;
     -fx-border-width: 2px;
@@ -37,7 +31,6 @@
 
 .label{
     -fx-text-fill: white;
-    -fx-font-weight: bold;
     -fx-font-size: 15px;
 }
 
@@ -64,6 +57,8 @@
 }
 
 #btnAjouter,#btnRechercher,#btnSupprimer,#btnModifier{
+    -fx-text-fill: white;
+    -fx-background-color: rgba(255,255,255,0.01);
     -fx-background-image: url("/ui/images/button.png");
     -fx-background-color: transparent;
     -fx-border-color: transparent;
@@ -75,6 +70,6 @@
     -fx-font-size: 14px;
 }
 
-#vbox{
+#vbox, .tool-bar{
     -fx-background-color: rgba(0,0,0,0.1);
 }

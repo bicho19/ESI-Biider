@@ -58,5 +58,6 @@ public class ajouter_controller extends communs{
         fileChooser.setTitle("Open Dialog");
         File file = fileChooser.showOpenDialog(new Stage());
         String path = file.getPath();
+        System.out.println(path);
     }
 }
