@@ -16,7 +16,7 @@ import utils.Main;
 
 public class communs {
 
-    @FXML Button btnUiClose = new Button();
+    @FXML Button btnClose = new Button();
     @FXML ToolBar toolBar;
     @FXML Button btnRechercher = new Button() ;
     @FXML Button btnSupprimer = new Button() ;
@@ -41,7 +41,7 @@ public class communs {
     @FXML public void closeButtonAction(ActionEvent actionEvent) throws Exception{
         // get a handle to the stage
         // The Exception is for the overriding
-        Stage stage = (Stage) btnUiClose.getScene().getWindow();
+        Stage stage = (Stage) btnClose.getScene().getWindow();
         // do what you have to do
         stage.close();
     }

@@ -30,7 +30,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button fx:id="btnUiClose" LayoutX="754" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
+                    <Button fx:id="btnClose" LayoutX="754" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
                         <graphic>
                             <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                                 <image>
@@ -88,7 +88,7 @@
             <Pane prefHeight="200.0" prefWidth="308.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
                   <Button layoutX="66.0" layoutY="19.0" mnemonicParsing="false" text="Capture" onAction="#btnCapture" fx:id="btnCapture"/>
-                  <Button layoutX="154.0" layoutY="19.0" mnemonicParsing="false" text="Parcourir" />
+                  <Button layoutX="154.0" layoutY="19.0" mnemonicParsing="false" text="Parcourir" onAction="#btnParcourir" />
                </children>
             </Pane>
             </children>

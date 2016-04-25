@@ -3,12 +3,9 @@ package utils;
 
 import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_face;
-
-
 import java.io.File;
 import java.io.FilenameFilter;
 import java.nio.IntBuffer;
-
 import static org.bytedeco.javacpp.opencv_core.*;
 import static org.bytedeco.javacpp.opencv_face.*;
 import static org.bytedeco.javacpp.opencv_imgcodecs.*;

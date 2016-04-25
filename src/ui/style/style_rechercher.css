@@ -46,7 +46,7 @@
     -fx-font-size: 20px;
 }
 
-#btnUiClose, #btnMinim, #btnMaxim{
+#btnClose, #btnMinim, #btnMaxim{
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }

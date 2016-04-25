@@ -36,7 +36,7 @@
         </ToolBar>
         <Pane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="btnUiClose" LayoutX="570" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
+                <Button fx:id="btnClose" LayoutX="570" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
                     <graphic>
                         <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                             <image>

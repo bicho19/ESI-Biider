@@ -7,9 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import utils.Main;
+
+import java.io.File;
 
 /**
  * Created by Creator on 21/04/2016.
@@ -48,5 +51,12 @@ public class ajouter_controller extends communs{
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    public void btnParcourir(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Dialog");
+        File file = fileChooser.showOpenDialog(new Stage());
+        String path = file.getPath();
     }
 }
