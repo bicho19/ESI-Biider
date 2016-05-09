@@ -1,0 +1,19 @@
+.root{
+    -fx-background-image: url("/ui/images/blue.png");
+    -fx-background-size: stretch;
+}
+
+.tool-bar{
+    -fx-background-color: transparent;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+.button{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}

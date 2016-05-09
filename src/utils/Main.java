@@ -2,15 +2,14 @@ package utils;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import java.io.IOException;
 
 public class Main extends Application {
+
     public static Parent getRoot() {
         return root;
     }
@@ -27,12 +26,12 @@ public class Main extends Application {
     private static Stage stage;
 
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
+    @Override public void start(Stage primaryStage) throws IOException {
+
         root = FXMLLoader.load(getClass().getResource("/ui/login.fxml"));
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_login.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
         primaryStage.setTitle("Hello World");
@@ -40,9 +39,9 @@ public class Main extends Application {
         primaryStage.show();
 
         stage = primaryStage;
+
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
+
 }

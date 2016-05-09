@@ -1,13 +1,20 @@
 package controllers;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import com.jfoenix.controls.JFXButton;
 import utils.Main;
 
 /**
@@ -16,16 +23,49 @@ import utils.Main;
 
 public class communs {
 
-    @FXML Button btnClose = new Button();
+    @FXML
+    Button btnClose = new Button();
     @FXML ToolBar toolBar;
     @FXML Button btnRechercher = new Button() ;
     @FXML Button btnSupprimer = new Button() ;
     @FXML Button btnModifier = new Button() ;
     @FXML Button btnAjouter = new Button() ;
     @FXML Button btnMinim = new Button();
+    @FXML JFXButton settings = new JFXButton();
+    @FXML JFXButton about = new JFXButton();
+    @FXML JFXButton mydb = new JFXButton();
+    @FXML JFXButton help = new JFXButton();
+
+
 
     private double xOffset;
     private double yOffset;
+
+
+    @FXML public void onSettingMoved(){
+        settings.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onSettingLeave(){
+        settings.setBackground(null);
+    }
+    @FXML public void onHelpMoved(){
+        help.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onHelpLeave(){
+        help.setBackground(null);
+    }
+    @FXML public void onAboutMoved(){
+        about.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onAboutLeave(){
+        about.setBackground(null);
+    }
+    @FXML public void onMydbMoved(){
+        mydb.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onMydbLeave(){
+        mydb.setBackground(null);
+    }
 
     // These two methods helps to move the window from any place on the scene
     @FXML public void setOnMousePressed(MouseEvent event){

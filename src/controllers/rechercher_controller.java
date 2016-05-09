@@ -5,5 +5,4 @@ package controllers;
  */
 public class rechercher_controller extends communs{
 
-
 }

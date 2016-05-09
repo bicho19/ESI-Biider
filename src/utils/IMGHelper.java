@@ -1,6 +1,6 @@
 package utils;
 
-
+/*
 import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_face;
 import java.io.File;
@@ -8,13 +8,13 @@ import java.io.FilenameFilter;
 import java.nio.IntBuffer;
 import static org.bytedeco.javacpp.opencv_core.*;
 import static org.bytedeco.javacpp.opencv_face.*;
-import static org.bytedeco.javacpp.opencv_imgcodecs.*;
+import static org.bytedeco.javacpp.opencv_imgcodecs.*;*/
 
 
 public class IMGHelper {
 
 
-
+/*
     public void imgComparie(String trainingDir, String imgCmpDir){
         File root = new File(trainingDir);
         opencv_core.Mat cmpImage = imread(imgCmpDir, CV_LOAD_IMAGE_GRAYSCALE);
@@ -103,5 +103,5 @@ public class IMGHelper {
         int predictedLabel = faceRecognizer.predict(testImage);
 
         System.out.println("Predicted label: " + predictedLabel);
-    }
+    }*/
 }

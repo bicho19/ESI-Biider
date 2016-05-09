@@ -1,10 +1,10 @@
 .root{
-    -fx-background-image: url("/ui/images/blue.png");
+    -fx-background-color: #c6c6c6;
     -fx-background-size: stretch;
 }
 
 .tool-bar, .tab, .tab-pane{
-    -fx-background-image: url("/ui/images/blue.png");
+    -fx-background-color: #c6c6c6;
     -fx-background-size: cover;
 }
 

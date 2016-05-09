@@ -26,4 +26,5 @@ public class CoonectionConfiguration {
         }
         return connect;
     }
+
 }
