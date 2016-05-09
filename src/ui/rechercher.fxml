@@ -60,7 +60,7 @@
     <left>
         <VBox id="vbox" alignment="TOP_CENTER" prefHeight="376.0" prefWidth="180.0" BorderPane.alignment="CENTER">
             <children>
-                <JFXButton id="mydb" fx:id="mydb" mnemonicParsing="false" onAction="#onRechercherAction"
+                <JFXButton id="mydb" fx:id="mydb" mnemonicParsing="false"
                            prefHeight="30.0" prefWidth="180.0" text="My DB" buttonType="FLAT" alignment="CENTER_LEFT"
                            onMouseMoved="#onMydbMoved" onMouseExited="#onMydbLeave">
                     <graphic>
@@ -71,7 +71,7 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton id="settings" fx:id="settings" mnemonicParsing="false" onAction="#onAjouterAction"
+                <JFXButton id="settings" fx:id="settings" mnemonicParsing="false"
                            prefHeight="30.0" prefWidth="180.0" text="Settings" buttonType="FLAT" alignment="CENTER_LEFT"
                            onMouseMoved="#onSettingMoved" onMouseExited="#onSettingLeave">
                     <graphic>
@@ -82,7 +82,7 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton id="help" fx:id="help" mnemonicParsing="false" onAction="#onSupprimerAction"
+                <JFXButton id="help" fx:id="help" mnemonicParsing="false"
                            prefHeight="30.0" prefWidth="180.0" text="Help" buttonType="FLAT" alignment="CENTER_LEFT"
                            onMouseMoved="#onHelpMoved" onMouseExited="#onHelpLeave">
                     <graphic>
@@ -93,7 +93,7 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton id="about" fx:id="about" mnemonicParsing="false" onAction="#onModifierAction"
+                <JFXButton id="about" fx:id="about" mnemonicParsing="false"
                            prefHeight="30.0" prefWidth="180.0" text="About" buttonType="FLAT" alignment="CENTER_LEFT"
                            onMouseMoved="#onAboutMoved" onMouseExited="#onAboutLeave">
                     <graphic>
