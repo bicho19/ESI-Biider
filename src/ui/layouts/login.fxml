@@ -67,8 +67,7 @@
                 <HBox alignment="CENTER_LEFT" fillHeight="false">
                     <children>
                         <JFXButton fx:id="btnLogin" mnemonicParsing="false" buttonType="RAISED" prefHeight="25.0" prefWidth="100.0"
-                                   style="-fx-text-fill:WHITE;-fx-background-color:#4CAF50;-fx-font-size:14px;"
-                                   text="Login" defaultButton="true" onAction="#handleLogin">
+                                    text="Login" defaultButton="true" onAction="#handleLogin">
                         </JFXButton>
                     </children>
                     <VBox.margin>
