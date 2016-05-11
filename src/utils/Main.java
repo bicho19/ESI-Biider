@@ -25,10 +25,9 @@ public class Main extends Application {
     }
     private static Stage stage;
 
-
     @Override public void start(Stage primaryStage) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("/ui/login.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/ui/layouts/login.fxml"));
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());

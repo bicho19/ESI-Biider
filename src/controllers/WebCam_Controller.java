@@ -112,7 +112,7 @@ public class WebCam_Controller extends communs implements Initializable {
 
     /**
      * This method is for initializing the WebCam on another Thread
-     * We use Task and Thread here, You need to learn ore about them in near FUTURE;
+     * We use Task and Thread here, You need to learn ore btnAbout them in near FUTURE;
      * Then it calls the startWebCamStream() to start the streaming in the ImageView;
      * @param webCamIndex
      */

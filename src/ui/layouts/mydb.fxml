@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import com.jfoenix.controls.JFXTreeTableColumn?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.mydb_controller" stylesheets="/ui/style/style_mydb.css">
+    <top>
+        <fx:include source="communs/toolbar.fxml" fx:id="toolBar"/>
+    </top>
+    <left>
+        <fx:include source="communs/left_list.fxml"/>
+    </left>
+   <center>
+       <VBox>
+           <Pane BorderPane.alignment="CENTER_LEFT">
+               <children>
+                   <JFXTreeTableView >
+                       <columns>
+                           <JFXTreeTableColumn id="table-column" prefWidth="39.0" text="ID" />
+                           <JFXTreeTableColumn id="table-column" prefWidth="122.0" text="First Name" />
+                           <JFXTreeTableColumn id="table-column" prefWidth="122.0" text="Last Name" />
+                           <JFXTreeTableColumn id="table-column" minWidth="0.0" prefWidth="112.0" text="Birth Date" />
+                           <JFXTreeTableColumn id="table-column" prefWidth="118.0" text="Birth Place" />
+                           <JFXTreeTableColumn id="table-column" prefWidth="83.0" text="Address" />
+                       </columns>
+                   </JFXTreeTableView>
+               </children>
+            </Pane>
+           <JFXButton fx:id="btnSearch" text="Search" mnemonicParsing="false" buttonType="RAISED">
+           </JFXButton>
+       </VBox>
+   </center>
+   <bottom>
+       <fx:include source="communs/bottom.fxml"/>
+   </bottom>
+</BorderPane>

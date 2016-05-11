@@ -13,8 +13,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-import com.jfoenix.controls.JFXButton;
 import utils.Main;
 
 /**
@@ -23,18 +23,13 @@ import utils.Main;
 
 public class communs {
 
-    @FXML
-    Button btnClose = new Button();
+    @FXML Button btnClose = new Button();
     @FXML ToolBar toolBar;
-    @FXML Button btnRechercher = new Button() ;
-    @FXML Button btnSupprimer = new Button() ;
-    @FXML Button btnModifier = new Button() ;
-    @FXML Button btnAjouter = new Button() ;
-    @FXML Button btnMinim = new Button();
-    @FXML JFXButton settings = new JFXButton();
-    @FXML JFXButton about = new JFXButton();
-    @FXML JFXButton mydb = new JFXButton();
-    @FXML JFXButton help = new JFXButton();
+    @FXML JFXButton btnSettings = new JFXButton() ;
+    @FXML JFXButton btnMinim = new JFXButton();
+    @FXML JFXButton btnAbout = new JFXButton();
+    @FXML JFXButton btnMydb = new JFXButton();
+    @FXML JFXButton btnHelp = new JFXButton();
 
 
 
@@ -43,28 +38,28 @@ public class communs {
 
 
     @FXML public void onSettingMoved(){
-        settings.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+        btnSettings.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
     }
     @FXML public void onSettingLeave(){
-        settings.setBackground(null);
+        btnSettings.setBackground(null);
     }
     @FXML public void onHelpMoved(){
-        help.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+        btnHelp.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
     }
     @FXML public void onHelpLeave(){
-        help.setBackground(null);
+        btnHelp.setBackground(null);
     }
     @FXML public void onAboutMoved(){
-        about.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+        btnAbout.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
     }
     @FXML public void onAboutLeave(){
-        about.setBackground(null);
+        btnAbout.setBackground(null);
     }
     @FXML public void onMydbMoved(){
-        mydb.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+        btnMydb.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
     }
     @FXML public void onMydbLeave(){
-        mydb.setBackground(null);
+        btnMydb.setBackground(null);
     }
 
     // These two methods helps to move the window from any place on the scene
@@ -89,71 +84,78 @@ public class communs {
         Stage stage=(Stage) btnMinim.getScene().getWindow();
         stage.setIconified(true);
     }
+
     // These 4 methods to change between the scenes
-    @FXML public void onAjouterAction(ActionEvent actionEvent) throws Exception {
-        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/ajouter.fxml")));
+    @FXML public void onSettingsAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/settings.fxml")));
         Scene scene = new Scene(Main.getRoot());
         Stage stage = Main.getStage();
         Main.setStage(stage);
 
-        stage = (Stage) btnAjouter.getScene().getWindow();
+        stage = (Stage) btnSettings.getScene().getWindow();
         if (stage.isMaximized()){
             stage.setMaximized(true);
         }
 
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_ajouter.css").toExternalForm());
-        stage.setTitle("Ajouter");
+        btnSettings.setStyle("-fx-font-weight: bold");
+        scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
+        stage.setTitle("Settings");
         stage.setScene(scene);
         stage.show();
 
     }
-    @FXML public void onModifierAction(ActionEvent actionEvent) throws Exception {
-        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/modifier.fxml")));
+    @FXML public void onHelpAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/help.fxml")));
         Scene scene = new Scene(Main.getRoot());
         Stage stage = Main.getStage();
         Main.setStage(stage);
+        btnHelp.setStyle("-fx-font-weight: bold");
 
-        stage = (Stage) btnModifier.getScene().getWindow();
+
+        stage = (Stage) btnHelp.getScene().getWindow();
         if (stage.isMaximized()){
             stage.setMaximized(true);
         }
 
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_modifier.css").toExternalForm());
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
         stage.setScene(scene);
-        stage.setTitle("Modifier");
+        stage.setTitle("Help");
         stage.show();
 
     }
-    @FXML public void onRechercherAction(ActionEvent actionEvent) throws Exception {
-        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/rechercher.fxml")));
+    @FXML public void onMydbAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/mydb.fxml")));
         Scene scene = new Scene(Main.getRoot());
         Stage stage = Main.getStage();
         Main.setStage(stage);
 
-        stage = (Stage) btnRechercher.getScene().getWindow();
+        btnMydb.setStyle("-fx-font-weight: bold");
+        stage = (Stage) btnMydb.getScene().getWindow();
         if (stage.isMaximized()){
             stage.setMaximized(true);
         }
 
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_rechercher.css").toExternalForm());
-        stage.setTitle("Rechercher");
+        scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
+        stage.setTitle("Mydb");
         stage.setScene(scene);
         stage.show();
 
     }
-    @FXML public void onSupprimerAction(ActionEvent actionEvent) throws Exception {
-        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/supprimer.fxml")));
+    @FXML public void onAboutAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/about.fxml")));
         Scene scene = new Scene(Main.getRoot());
         Stage stage = Main.getStage();
         Main.setStage(stage);
 
-        stage = (Stage) btnSupprimer.getScene().getWindow();
+
+        stage = (Stage) btnAbout.getScene().getWindow();
         if (stage.isMaximized()){
             stage.setMaximized(true);
         }
 
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_supprimer.css").toExternalForm());
-        stage.setTitle("Supprimer");
+        scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
+        stage.setTitle("About");
         stage.setScene(scene);
         stage.show();
     }

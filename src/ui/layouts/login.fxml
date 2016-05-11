@@ -23,25 +23,25 @@
         <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed"
                  prefHeight="57.0" prefWidth="350.0" BorderPane.alignment="CENTER">
             <items>
+                <ImageView fitHeight="40.0" fitWidth="200.0" preserveRatio="true" >
+                    <image>
+                        <Image url="/ui/images/logo.png" />
+                    </image>
+                </ImageView>
                 <Pane>
                     <fx:define>
-                        <Image fx:id="btnImage" url="/ui/images/close.png" />
+                        <Image fx:id="btnImage" url="/ui/images/close_green.png" />
                     </fx:define>
-                    <JFXButton fx:id="btnClose" LayoutX="350" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction"
+                    <JFXButton fx:id="btnClose" LayoutX="240" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction"
                                buttonType="RAISED">
                         <graphic>
                             <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                                 <image>
-                                    <Image url="/ui/images/close.png" />
+                                    <Image url="/ui/images/close_green.png" />
                                 </image>
                             </ImageView>
                         </graphic>
                     </JFXButton>
-                    <ImageView fitHeight="47.0" fitWidth="200.0" pickOnBounds="true" smooth="false">
-                        <image>
-                            <Image url="@../../../Desktop/Untitled-2.png" />
-                        </image>
-                    </ImageView>
                 </Pane>
             </items>
         </ToolBar>
@@ -59,17 +59,17 @@
                         <Insets left="40.0" right="40.0" />
                     </VBox.margin>
                 </JFXPasswordField>
+                <Label  text="" fx:id="errorMessage">
+                    <VBox.margin>
+                        <Insets left="-170.0" right="40.0" />
+                    </VBox.margin>
+                </Label>
                 <HBox alignment="CENTER_LEFT" fillHeight="false">
                     <children>
                         <JFXButton fx:id="btnLogin" mnemonicParsing="false" buttonType="RAISED" prefHeight="25.0" prefWidth="100.0"
                                    style="-fx-text-fill:WHITE;-fx-background-color:#4CAF50;-fx-font-size:14px;"
                                    text="Login" defaultButton="true" onAction="#handleLogin">
                         </JFXButton>
-                        <Label alignment="CENTER_LEFT" text="Forgot ?">
-                            <HBox.margin>
-                                <Insets left="150" />
-                            </HBox.margin>
-                        </Label>
                     </children>
                     <VBox.margin>
                         <Insets left="50.0" right="40.0" />

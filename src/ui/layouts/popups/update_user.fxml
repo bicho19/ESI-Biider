@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.BorderPane?>
+
+<VBox onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="200.0" prefWidth="300.0"
+      xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.updateUser_controller" fx:id="vBox">
+    <ToolBar fx:id="toolBar" >
+    </ToolBar>
+    <Label text="Your previous password:" style="-fx-text-fill: #000000"/>
+    <JFXPasswordField promptText="Previous password"/>
+    <Label text="Your new password:" style="-fx-text-fill: #000000"/>
+    <JFXPasswordField promptText="New password"/>
+    <Label text="Confirm your new password:" style="-fx-text-fill: #000000"/>
+    <JFXPasswordField promptText="Vonfirm password"/>
+    <JFXButton text="Update" fx:id="btnUpdate" buttonType="RAISED" prefWidth="Infinity" onMouseClicked="#onUpdateClick"
+               style="-fx-text-fill:WHITE;-fx-background-color:#4CAF50;-fx-font-size:14px;" />
+    <BorderPane>
+        <center>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" visible="false"
+                       fx:id="success" BorderPane.alignment="BOTTOM_CENTER">
+                <image>
+                    <Image url="/ui/images/success.png" />
+                </image>
+            </ImageView>
+        </center>
+    </BorderPane>
+    <BorderPane>
+        <center>
+            <Label text="Password has been changed." visible="false" fx:id="changed"/>
+        </center>
+    </BorderPane>
+</VBox>

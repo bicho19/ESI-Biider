@@ -1,0 +1,55 @@
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<VBox id="vbox" alignment="TOP_CENTER" prefHeight="376.0" prefWidth="180.0"
+      xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.mydb_controller" stylesheets="/ui/style/style_leftList.css">
+    <children>
+        <JFXButton id="btnMydb" fx:id="btnMydb" mnemonicParsing="false" styleClass=""
+                prefHeight="30.0" prefWidth="180.0" text="My DB"  alignment="CENTER_LEFT"
+                onMouseMoved="#onMydbMoved" onMouseExited="#onMydbLeave" buttonType="FLAT" onAction="#onMydbAction">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                    <image>
+                        <Image url="/ui/images/mydb.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </JFXButton>
+        <JFXButton id="btnSettings" fx:id="btnSettings" mnemonicParsing="false"
+                   prefHeight="30.0" prefWidth="180.0" text="Settings" buttonType="FLAT" alignment="CENTER_LEFT"
+                   onMouseMoved="#onSettingMoved" onMouseExited="#onSettingLeave" onAction="#onSettingsAction">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                    <image>
+                        <Image url="/ui/images/settings.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </JFXButton>
+        <JFXButton id="btnHelp" fx:id="btnHelp" mnemonicParsing="false"
+                   prefHeight="30.0" prefWidth="180.0" text="Help" buttonType="FLAT" alignment="CENTER_LEFT"
+                   onMouseMoved="#onHelpMoved" onMouseExited="#onHelpLeave" onAction="#onHelpAction">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                    <image>
+                        <Image url="/ui/images/help.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </JFXButton>
+        <JFXButton id="btnAbout" fx:id="btnAbout" mnemonicParsing="false"
+                   prefHeight="30.0" prefWidth="180.0" text="About" buttonType="FLAT" alignment="CENTER_LEFT"
+                   onMouseMoved="#onAboutMoved" onMouseExited="#onAboutLeave" onAction="#onAboutAction">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                    <image>
+                        <Image url="/ui/images/about.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </JFXButton>
+    </children>
+</VBox>

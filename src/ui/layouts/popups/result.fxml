@@ -16,7 +16,7 @@
             <items>
                 <Pane>
                     <fx:define>
-                        <Image fx:id="btnImage" url="/ui/images/close.png" />
+                        <Image fx:id="btnImage" url="/ui/images/close_green.png" />
                     </fx:define>
                     <Button LayoutX="469" fx:id="btnMinim" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#minimizeButton">
                         <graphic>
@@ -31,7 +31,7 @@
                         <graphic>
                             <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                                 <image>
-                                    <Image url="/ui/images/close.png" />
+                                    <Image url="/ui/images/close_green.png" />
                                 </image>
                             </ImageView>
                         </graphic>

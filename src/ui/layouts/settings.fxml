@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Separator?>
+
+<BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.settings_controller" stylesheets="/ui/style/style_settings.css">
+    <top>
+        <fx:include source="communs/toolbar.fxml" fx:id="toolBar"/>
+    </top>
+    <left>
+        <fx:include source="communs/left_list.fxml"/>
+    </left>
+    <center>
+        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                  prefHeight="400.0" prefWidth="600.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="131.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="182.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Separator GridPane.rowIndex="0" GridPane.valignment="BOTTOM" />
+                <Separator GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                <HBox prefHeight="30.0" prefWidth="200.0"
+                      fx:id="hBox1" onMouseClicked="#onChangePasswordAction"
+                      onMouseMoved="#changePasswordMouseMoved" onMouseExited="#changePasswordMouseLeave">
+                    <children>
+                        <ImageView fitHeight="61.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/ui/images/pass.png" />
+                            </image>
+                        </ImageView>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                              prefHeight="60.0" prefWidth="237.0">
+                            <children>
+                                <Label style="-fx-text-fill: #000000;-fx-font-weight: bolder;-fx-font-size: 15px" text="Username &amp; Password" />
+                                <Label style="-fx-text-fill: #000000" text="Change your username and your password." />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1"
+                      fx:id="hBox2" onMouseClicked="#onControlUsersAction"
+                      onMouseMoved="#changeControlUsersMoved" onMouseExited="#changeControlUsersLeave">
+                    <children>
+                        <ImageView fitHeight="61.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/ui/images/users.png" />
+                            </image>
+                        </ImageView>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="237.0">
+                            <children>
+                                <Label style="-fx-text-fill: #000000;-fx-font-weight: bolder;-fx-font-size: 15px" text="Control users" />
+                                <Label style="-fx-text-fill: #000000" text=" Add new users and control them." />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </GridPane>
+    </center>
+
+    <bottom>
+        <fx:include source="communs/bottom.fxml"/>
+    </bottom>
+</BorderPane>
