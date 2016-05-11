@@ -1,21 +1,29 @@
 package utils;
 
-/*
+
 import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_face;
+import org.imgscalr.Scalr;
+import org.imgscalr.Scalr.Method;
+import org.imgscalr.Scalr.Mode;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.nio.IntBuffer;
 import static org.bytedeco.javacpp.opencv_core.*;
 import static org.bytedeco.javacpp.opencv_face.*;
-import static org.bytedeco.javacpp.opencv_imgcodecs.*;*/
+import static org.bytedeco.javacpp.opencv_imgcodecs.*;
 
 
 public class IMGHelper {
 
 
-/*
-    public void imgComparie(String trainingDir, String imgCmpDir){
+
+    public double[] imgCompare(String trainingDir, String imgCmpDir){
+        double[] results = new double[2];
         File root = new File(trainingDir);
         opencv_core.Mat cmpImage = imread(imgCmpDir, CV_LOAD_IMAGE_GRAYSCALE);
 
@@ -52,7 +60,10 @@ public class IMGHelper {
         //opencv_face.FaceRecognizer faceRecognizer     = createEigenFaceRecognizer();
         faceRecognizer.train(images, labels);
         faceRecognizer.predict(cmpImage,plabel,pconfidence);
-        System.out.println("Predicted label: " + plabel[0] + " " + pconfidence[0]);
+        //System.out.println("Predicted label: " + plabel[0] + " " + pconfidence[0]);
+        results[0] = plabel[0];
+        results[1] = pconfidence[0];
+        return results;
 
     }
 
@@ -103,5 +114,29 @@ public class IMGHelper {
         int predictedLabel = faceRecognizer.predict(testImage);
 
         System.out.println("Predicted label: " + predictedLabel);
-    }*/
+    }
+
+    public BufferedImage imgResize(String src){
+        BufferedImage result = null;
+        File file = new File(src);
+        try {
+            BufferedImage image = ImageIO.read(file);
+            result = Scalr.resize(image,Method.ULTRA_QUALITY,Mode.AUTOMATIC,
+                    500, 500,
+                    Scalr.OP_ANTIALIAS);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public void resizeSaveImage(String imgpath,String where){
+        BufferedImage image = imgResize(imgpath);
+        try {
+            ImageIO.write(image,"jpg",new File(where));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
