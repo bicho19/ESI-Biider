@@ -5,15 +5,32 @@
 
 <VBox id="vbox" alignment="TOP_CENTER" prefHeight="376.0" prefWidth="180.0"
       xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.mydb_controller" stylesheets="/ui/style/style_leftList.css">
-    <children>
-        <JFXButton id="btnMydb" fx:id="btnMydb" mnemonicParsing="false" styleClass=""
-                prefHeight="30.0" prefWidth="180.0" text="My DB"  alignment="CENTER_LEFT"
-                onMouseMoved="#onMydbMoved" onMouseExited="#onMydbLeave" buttonType="FLAT" onAction="#onMydbAction">
+      fx:controller="controllers.communs" stylesheets="/ui/style/style_leftList.css">
+        <JFXButton id="btnHome" fx:id="btnHome" mnemonicParsing="false" styleClass=""
+                   prefHeight="30.0" prefWidth="180.0" text="Home"  alignment="CENTER_LEFT"
+                   onMouseMoved="#onHomeMoved" onMouseExited="#onHomeLeave" buttonType="FLAT" onAction="#onHomeAction">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                        <Image url="/ui/images/home.png" />
+                </ImageView>
+            </graphic>
+        </JFXButton>
+        <JFXButton id="btnSearch" fx:id="btnSearch" mnemonicParsing="false" styleClass=""
+                   prefHeight="30.0" prefWidth="180.0" text="Search"  alignment="CENTER_LEFT"
+                   onMouseMoved="#onSearchMoved" onMouseExited="#onSearchLeave" buttonType="FLAT" onAction="#onSearchAction">
+            <graphic>
+                <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                        <Image url="/ui/images/search.png" />
+                </ImageView>
+            </graphic>
+        </JFXButton>
+        <JFXButton id="btnAdd" fx:id="btnAdd" mnemonicParsing="false" styleClass=""
+                   prefHeight="30.0" prefWidth="180.0" text="Add"  alignment="CENTER_LEFT"
+                   onMouseMoved="#onAddMoved" onMouseExited="#onAddLeave" buttonType="FLAT" onAction="#onAddAction">
             <graphic>
                 <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                     <image>
-                        <Image url="/ui/images/mydb.png" />
+                        <Image url="/ui/images/add.png" />
                     </image>
                 </ImageView>
             </graphic>
@@ -51,5 +68,4 @@
                 </ImageView>
             </graphic>
         </JFXButton>
-    </children>
 </VBox>

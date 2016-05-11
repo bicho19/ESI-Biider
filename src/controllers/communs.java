@@ -2,6 +2,7 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -13,7 +14,6 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import utils.Main;
 
@@ -30,6 +30,8 @@ public class communs {
     @FXML JFXButton btnAbout = new JFXButton();
     @FXML JFXButton btnMydb = new JFXButton();
     @FXML JFXButton btnHelp = new JFXButton();
+    @FXML JFXButton btnAdd = new JFXButton();
+
 
 
 
@@ -42,6 +44,12 @@ public class communs {
     }
     @FXML public void onSettingLeave(){
         btnSettings.setBackground(null);
+    }
+    @FXML public void onAddMoved(){
+        btnAdd.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onAddLeave(){
+        btnAdd.setBackground(null);
     }
     @FXML public void onHelpMoved(){
         btnHelp.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
@@ -98,7 +106,7 @@ public class communs {
         }
 
         btnSettings.setStyle("-fx-font-weight: bold");
-        scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
         stage.setTitle("Settings");
         stage.setScene(scene);
         stage.show();
@@ -118,7 +126,7 @@ public class communs {
         }
 
 
-        scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("Help");
         stage.show();
@@ -136,7 +144,7 @@ public class communs {
             stage.setMaximized(true);
         }
 
-        scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
         stage.setTitle("Mydb");
         stage.setScene(scene);
         stage.show();
@@ -154,9 +162,50 @@ public class communs {
             stage.setMaximized(true);
         }
 
-        scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
         stage.setTitle("About");
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML public void onAddAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/add.fxml")));
+        Scene scene = new Scene(Main.getRoot());
+        Stage stage = Main.getStage();
+        Main.setStage(stage);
+
+
+        stage = (Stage) btnAdd.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
+        stage.setTitle("Add");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onHomeMoved(Event event) {
+
+    }
+
+    public void onHomeLeave(Event event) {
+
+    }
+
+    public void onHomeAction(ActionEvent actionEvent) {
+
+    }
+
+    public void onSearchMoved(Event event) {
+
+    }
+
+    public void onSearchLeave(Event event) {
+
+    }
+
+    public void onSearchAction(ActionEvent actionEvent) {
+
     }
 }

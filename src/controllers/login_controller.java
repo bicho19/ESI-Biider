@@ -14,19 +14,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.*;
-import javafx.scene.text.*;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.scene.control.ToolBar;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import utils.DBHelper;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 public class login_controller extends communs implements Initializable{
 
@@ -73,7 +67,7 @@ public class login_controller extends communs implements Initializable{
             Scene scene = new Scene(root);
 
             Stage stage = new Stage();
-            scene.getStylesheets().add(getClass().getResource("/ui/style/jfoenix-components.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
             stage.initStyle(StageStyle.TRANSPARENT);
 
             stage.setTitle("ABC");

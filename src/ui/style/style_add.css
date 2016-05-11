@@ -3,13 +3,14 @@
     -fx-border-color: transparent;
 }
 
-#btnSettings{
+#btnAdd{
     -fx-font-weight: bold;
 }
 
-#btnMydb:hover,#btnHelp:hover,#btnAbout:hover,#btnAdd:hover{
+#btnMydb:hover,#btnHelp:hover,#btnSettings:hover,#btnAbout:hover{
     -fx-font-weight: bold;
 }
+
 
 .root{
     -fx-background-color: linear-gradient(to right, #eaeaea,#ffffff);

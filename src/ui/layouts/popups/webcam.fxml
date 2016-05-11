@@ -1,54 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.Pane?>
-
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
+<?import com.jfoenix.controls.JFXButton?>
 <BorderPane fx:id="camRootPane" maxHeight="600.0" maxWidth="600.0" minHeight="600.0"
             minWidth="600.0" prefHeight="600.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.WebCam_Controller">
     <top>
-        <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" BorderPane.alignment="CENTER">
-            <items>
-                <Pane>
-                    <fx:define>
-                        <Image fx:id="btnImage" url="/ui/images/close_green.png" />
-                    </fx:define>
-                    <Button fx:id="btnMinim" LayoutX="729" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#minimizeButton">
-                        <graphic>
-                            <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
-                                <image>
-                                    <Image url="/ui/images/minim.png" />
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                </Pane>
-            </items>
-        </ToolBar>
-        <Pane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-            <children>
-                <Button fx:id="btnClose" LayoutX="570" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
-                    <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
-                            <image>
-                                <Image url="/ui/images/close_green.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <Label alignment="CENTER" layoutX="152.0" layoutY="12.0" text="Select Your Webcam Camera" />
-                <ComboBox fx:id="cameraOptions" layoutX="321.0" layoutY="8.0" prefWidth="150.0" promptText="Choose Camera" />
-            </children>
-        </Pane>
     </top>
     <center>
         <BorderPane fx:id="webCamPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ccc;" BorderPane.alignment="CENTER">
@@ -58,12 +19,10 @@
     </center>
     <bottom>
         <FlowPane hgap="20.0" prefHeight="40.0" vgap="10.0" BorderPane.alignment="CENTER" fx:id="bottomCameraControlPane">
-            <children>
-                <Button alignment="CENTER" mnemonicParsing="false" text="Take Another" fx:id="btnStartCamera" onAction="#startWebCamStream"/>
-                <Button mnemonicParsing="false" text="Save Photo" fx:id="btnTakePhoto" onAction="#savePhotoWebCam"/>
-                <Button mnemonicParsing="false" text="Take Photo" fx:id="btnStopCamera" onAction="#stopWebCamCamera" />
-                <Button mnemonicParsing="false" text="Dispose Camera" fx:id="btnDisposeCamera" onAction="#disposeWebCamCamera" />
-            </children>
+                <JFXButton alignment="CENTER" mnemonicParsing="false" text="Take Another" fx:id="btnStartCamera" onAction="#startWebCamStream"/>
+                <JFXButton mnemonicParsing="false" text="Save Photo" fx:id="btnTakePhoto" onAction="#savePhotoWebCam"/>
+                <JFXButton mnemonicParsing="false" text="Take Photo" fx:id="btnStopCamera" onAction="#stopWebCamCamera" />
+                <JFXButton mnemonicParsing="false" text="Dispose Camera" fx:id="btnDisposeCamera" onAction="#disposeWebCamCamera" />
             <padding>
                 <Insets left="100.0" top="5.0" />
             </padding>

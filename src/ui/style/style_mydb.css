@@ -7,7 +7,7 @@
     -fx-font-weight: bold;
 }
 
-#btnAbout:hover,#btnHelp:hover,#btnSettings:hover{
+#btnAbout:hover,#btnHelp:hover,#btnSettings:hover,#btnAdd:hover{
     -fx-font-weight: bold;
 }
 
