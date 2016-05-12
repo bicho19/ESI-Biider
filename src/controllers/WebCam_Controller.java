@@ -39,7 +39,7 @@ public class WebCam_Controller extends communs implements Initializable {
     @FXML BorderPane camRootPane;
     @FXML ImageView imgWebCamCapturedImage;
     @FXML BorderPane webCamPane;
-    @FXML ComboBox<WebCamInfo> cameraOptions;
+    @FXML ComboBox<WebCamInfo> cameraOptions = new ComboBox<>();
     @FXML FlowPane bottomCameraControlPane;
     @FXML Button btnStartCamera;
     @FXML Button btnStopCamera;
@@ -55,6 +55,8 @@ public class WebCam_Controller extends communs implements Initializable {
      * @param name
      */
     public void setPhotoName(String name){this.photoName = name;}
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         createCameraOptions();
