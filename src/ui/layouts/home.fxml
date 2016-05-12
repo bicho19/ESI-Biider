@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.home_controller" stylesheets="/ui/style/style_home.css">
+    <top>
+        <fx:include source="communs/toolbar.fxml" fx:id="toolBar"/>
+    </top>
+    <left>
+        <fx:include source="communs/left_list.fxml"/>
+    </left>
+
+    <center>
+        <Label text="This is home" />
+    </center>
+    <bottom>
+        <fx:include source="communs/bottom.fxml"/>
+    </bottom>
+</BorderPane>

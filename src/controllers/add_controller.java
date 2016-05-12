@@ -66,7 +66,7 @@ public class add_controller extends communs implements Initializable{
         stage.show();
 
     }
-    @FXML public void btnParcourir(ActionEvent actionEvent) {
+    @FXML public void onLoadClick (ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Dialog");
         File file = fileChooser.showOpenDialog(new Stage());

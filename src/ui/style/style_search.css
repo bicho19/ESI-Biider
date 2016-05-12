@@ -3,11 +3,11 @@
     -fx-border-color: transparent;
 }
 
-#btnAdd{
+#btnSearch{
     -fx-font-weight: bold;
 }
 
-#btnHome:hover,#btnHelp:hover,#btnSettings:hover,#btnAbout:hover,#btnSearch:hover{
+#btnHome:hover,#btnHelp:hover,#btnSettings:hover,#btnAdd:hover,#btnAbout:hover{
     -fx-font-weight: bold;
 }
 

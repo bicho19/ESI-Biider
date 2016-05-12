@@ -19,10 +19,8 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import utils.DBHelper;
 import utils.Sessions;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import static utils.Utils.*;
 
 public class login_controller extends communs implements Initializable{

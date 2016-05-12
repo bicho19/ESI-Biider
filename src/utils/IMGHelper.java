@@ -1,6 +1,6 @@
 package utils;
 
-
+/*
 import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_face;
 import org.imgscalr.Scalr;
@@ -15,14 +15,14 @@ import java.io.IOException;
 import java.nio.IntBuffer;
 import static org.bytedeco.javacpp.opencv_core.*;
 import static org.bytedeco.javacpp.opencv_face.*;
-import static org.bytedeco.javacpp.opencv_imgcodecs.*;
+import static org.bytedeco.javacpp.opencv_imgcodecs.*;*/
 
 
 public class IMGHelper {
 
 
 
-    public double[] imgCompare(String trainingDir, String imgCmpDir){
+    /*public double[] imgCompare(String trainingDir, String imgCmpDir){
         double[] results = new double[2];
         File root = new File(trainingDir);
         opencv_core.Mat cmpImage = imread(imgCmpDir, CV_LOAD_IMAGE_GRAYSCALE);
@@ -137,6 +137,6 @@ public class IMGHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
 

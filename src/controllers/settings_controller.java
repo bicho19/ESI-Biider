@@ -1,31 +1,20 @@
 package controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by Creator on 21/04/2016.
- */
 public class settings_controller extends communs{
 
     @FXML HBox hBox1 = new HBox();
     @FXML HBox hBox2 = new HBox();
-
-
 
     @FXML public void onChangePasswordAction(){
         try {

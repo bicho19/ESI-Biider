@@ -3,11 +3,11 @@
     -fx-border-color: transparent;
 }
 
-#btnMydb{
+#btnHome{
     -fx-font-weight: bold;
 }
 
-#btnAbout:hover,#btnHelp:hover,#btnSettings:hover,#btnAdd:hover{
+#btnAbout:hover,#btnHelp:hover,#btnSettings:hover,#btnAdd:hover,#btnSearch:hover{
     -fx-font-weight: bold;
 }
 

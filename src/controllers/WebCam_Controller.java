@@ -33,6 +33,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class WebCam_Controller extends communs implements Initializable {
@@ -200,14 +201,16 @@ public class WebCam_Controller extends communs implements Initializable {
         enableAllButton();
     }
 
-    public void savePhotoWebCam() {
+    public void savePhotoWebCam(ActionEvent actionEvent) {
         BufferedImage bufferedImage = webCam.getImage();
         try {
             ImageIO.write(bufferedImage,"JPG",new File("src/photos/test.jpg"));
-            closeButtonAction();
+            closeButtonAction(actionEvent);
         } catch (IOException e) {
             e.printStackTrace();
-        }  finally {
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
             disposeWebCamCamera();
         }
     }
@@ -218,7 +221,7 @@ public class WebCam_Controller extends communs implements Initializable {
         btnStartCamera.setDisable(true);
         btnStopCamera.setDisable(true);
         btnTakePhoto.setDisable(true);
-        closeButtonAction();
+        //closeButtonAction();
     }
     private void disableAllButton(){
         btnTakePhoto.setDisable(true);
