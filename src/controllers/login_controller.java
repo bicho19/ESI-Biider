@@ -1,7 +1,7 @@
 package controllers;
 
 import com.jfoenix.controls.JFXButton;
-import entities.Admin;
+import entities.Account;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -18,10 +18,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import utils.DBHelper;
-import utils.IMGHelper;
+import utils.Sessions;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static utils.Utils.*;
 
 public class login_controller extends communs implements Initializable{
 
@@ -33,6 +35,7 @@ public class login_controller extends communs implements Initializable{
     int nTrys = 5;
     int seconds = 4;
     Timeline timeline;
+    Sessions sessions;
 
 
     public void decrement(){
@@ -50,12 +53,13 @@ public class login_controller extends communs implements Initializable{
     }
 
     public void handleLogin(ActionEvent actionEvent) throws Exception {
+        sessions = new Sessions();
         String user_name = usernameField.getText();
-        String pass_word = passwordField.getText();
-        Admin admin = new Admin(user_name, pass_word);
-        Admin test = dbHelper.checkLoginAdmin(admin);
-        if (test != null) {
-            System.out.println("Connected");
+        String pass_word = passHash(passwordField.getText());
+        Account account = new Account(user_name, pass_word);
+        if (dbHelper.checkLoginAccount(account)) {
+            Account account1 = dbHelper.getAccountByUsername(user_name);
+            sessions.setPrefs(user_name,true,account1.getAccType());
             Parent root = FXMLLoader.load(getClass().getResource("/ui/layouts/mydb.fxml"));
             Scene scene = new Scene(root);
 
@@ -71,7 +75,7 @@ public class login_controller extends communs implements Initializable{
             stage1.close();
         } else {
             if(nTrys!=0) {
-                errorMessage.setText("Wrong password .. "+nTrys+" trys left.");
+                errorMessage.setText("Wrong password .. "+nTrys+" tries left.");
                 errorMessage.setStyle("-fx-font-weight: bold;-fx-text-fill: #ff484b");
                 nTrys--;
             }else{
@@ -93,6 +97,5 @@ public class login_controller extends communs implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dbHelper = new DBHelper();
-        System.out.println(dbHelper.checkIfIDExist("10"));
     }
 }
