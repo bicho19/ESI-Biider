@@ -81,7 +81,7 @@ public class communs {
         stage.setY(event.getScreenY() - yOffset );
     }
     // These 2 method are obvious
-    @FXML public void closeButtonAction(ActionEvent actionEvent) throws Exception{
+    @FXML public void closeButtonAction(){
         // get a handle to the stage
         // The Exception is for the overriding
         Stage stage = (Stage) btnClose.getScene().getWindow();

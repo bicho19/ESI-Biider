@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import utils.DBHelper;
+import utils.IMGHelper;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,13 +34,6 @@ public class login_controller extends communs implements Initializable{
     int seconds = 4;
     Timeline timeline;
 
-    @FXML
-    private void closeButtonAction(){
-        // get a handle to the stage
-        Stage stage = (Stage) btnClose.getScene().getWindow();
-        // do what you have to do
-        stage.close();
-    }
 
     public void decrement(){
         errorMessage.setText("You have to wait "+seconds+" seconds");
@@ -56,7 +50,6 @@ public class login_controller extends communs implements Initializable{
     }
 
     public void handleLogin(ActionEvent actionEvent) throws Exception {
-        dbHelper = new DBHelper();
         String user_name = usernameField.getText();
         String pass_word = passwordField.getText();
         Admin admin = new Admin(user_name, pass_word);
@@ -99,8 +92,7 @@ public class login_controller extends communs implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        DBHelper db = new DBHelper();
-
-        System.out.println(db.checkIfIDExist("10"));
+        dbHelper = new DBHelper();
+        System.out.println(dbHelper.checkIfIDExist("10"));
     }
 }

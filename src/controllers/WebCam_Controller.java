@@ -204,9 +204,10 @@ public class WebCam_Controller extends communs implements Initializable {
         BufferedImage bufferedImage = webCam.getImage();
         try {
             ImageIO.write(bufferedImage,"JPG",new File("src/photos/test.jpg"));
+            closeButtonAction();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
+        }  finally {
             disposeWebCamCamera();
         }
     }
@@ -217,6 +218,7 @@ public class WebCam_Controller extends communs implements Initializable {
         btnStartCamera.setDisable(true);
         btnStopCamera.setDisable(true);
         btnTakePhoto.setDisable(true);
+        closeButtonAction();
     }
     private void disableAllButton(){
         btnTakePhoto.setDisable(true);
