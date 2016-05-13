@@ -1,5 +1,7 @@
 package entities;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -16,6 +18,9 @@ public class User implements  Comparable{
     private ArrayList<String> photos = new ArrayList<>();  // array list of  paths of photos
 
     public User(){}
+    public User(String firstName, String lastName){
+        this.lastName=firstName; this.firstName=lastName;
+    }
 
     public User(String nId, String lName , String fName,
                 Date bd, String bp, char s, String adr, String fp, String photo){
