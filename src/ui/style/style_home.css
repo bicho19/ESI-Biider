@@ -3,6 +3,22 @@
     -fx-border-color: transparent;
 }
 
+#welcom{
+    -fx-text-fill: #4c86af;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+#logged{
+    -fx-font-size: 20px;
+}
+
+.root{
+    -fx-background-repeat: no-repeat;
+    -fx-background-image: url("/ui/images/robot.png");
+    -fx-background-position: right;
+}
+
 #btnHome{
     -fx-font-weight: bold;
 }

@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Button?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXRadioButton?>
-
 <?import javafx.scene.control.ToggleGroup?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXButton?>
+
 <BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.add_controller" stylesheets="/ui/style/style_add.css">
@@ -30,7 +30,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints valignment="CENTER" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -39,16 +39,48 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
-                <Label alignment="CENTER" contentDisplay="CENTER" text="ID:" />
-                <Label text="First Name:" GridPane.rowIndex="1" />
-                <Label text="Last Name:" GridPane.rowIndex="2" />
-                <Label layoutX="10.0" layoutY="127.0" text="Birth Date:" GridPane.rowIndex="4" />
-                <Label layoutX="10.0" layoutY="27.0" text="Birth Place:" GridPane.rowIndex="3" />
-                <Label layoutX="10.0" layoutY="227.0" text="Photo:" GridPane.rowIndex="7" />
-                <Label layoutX="10.0" layoutY="27.0" text="Adress:" GridPane.rowIndex="6" />
-                <Label layoutX="10.0" layoutY="27.0" text="Sex:" GridPane.rowIndex="5" />
-                <TextField GridPane.columnIndex="1" />
-                <TextField layoutX="310.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="0">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="ID: " textAlignment="CENTER" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="First Name: " textAlignment="CENTER" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Last Name:  " textAlignment="CENTER" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Birth Date: " textAlignment="CENTER" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Birth Place:    " textAlignment="CENTER" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Photo:  " textAlignment="CENTER" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Adress: " textAlignment="CENTER" />
+                </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Sex:    " textAlignment="CENTER" />
+                </children>
+            </HBox>
+                <JFXTextField GridPane.columnIndex="1" />
+                <JFXTextField layoutX="310.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <JFXDatePicker layoutX="10.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
 
@@ -61,15 +93,19 @@
                             <JFXRadioButton layoutX="10.0" layoutY="23.0" text="Female" toggleGroup="$toggleGroup"/>
                     </HBox>
                 </Pane>
-                <TextField layoutX="10.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <TextField layoutX="310.0" layoutY="173.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <TextField layoutX="10.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <JFXTextField layoutX="10.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <JFXTextField layoutX="310.0" layoutY="173.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <JFXTextField layoutX="10.0" layoutY="23.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                     <HBox alignment="CENTER" layoutX="-2.0" layoutY="-1.0" prefHeight="50.0" prefWidth="300.0" spacing="50.0">
-                        <Button id="btnCapture" onAction="#onCaptureClick"
-                                   mnemonicParsing="false" text="Capture" />
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Load" onAction="#onLoadClick" />
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Add" />
+                        <JFXButton id="btnCapture" onAction="#onCaptureClick" buttonType="RAISED"
+                                   mnemonicParsing="false" text="Capture"
+                                    style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white"/>
+                        <JFXButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Load" onAction="#onLoadClick"
+                                   buttonType="RAISED"
+                                   style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white"/>
+                        <JFXButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Add" buttonType="RAISED"
+                                   style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white"/>
                     </HBox>
                 </Pane>
         </GridPane>
