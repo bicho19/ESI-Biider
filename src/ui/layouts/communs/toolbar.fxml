@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import com.jfoenix.controls.JFXButton?>
 
-
 <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed"
          xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
          fx:controller="controllers.about_controller" >

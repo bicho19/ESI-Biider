@@ -7,6 +7,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import utils.DBHelper;
@@ -25,8 +27,8 @@ public class search_controller extends communs implements Initializable{
     @FXML TableColumn<Usermaster,String> bplaceColumn;
     @FXML TableColumn<Usermaster,String> sexColumn;
     @FXML TableColumn<Usermaster,String> addressColumn;
-    private ObservableList<Usermaster> data;
-    private DBHelper dbHelper;
+    public ObservableList<Usermaster> data;
+    public DBHelper dbHelper;
 
 
 
@@ -34,14 +36,27 @@ public class search_controller extends communs implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         buildCellFactory();
         buildData();
-
+        searchTable.setRowFactory( tv -> {
+            TableRow<Usermaster> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    // set onTableViewItemSelected (DoubleClick)
+                    Usermaster rowData = row.getItem();
+                    System.out.println("ID: "+rowData.getId());
+                }
+            });
+            return row ;
+        });
     }
 
+    @FXML public void onTableViewListener(){
+
+    }
 
     private void buildData() {
         data = FXCollections.observableArrayList();
         dbHelper = new DBHelper();
-        TreeSet<User> users = dbHelper.getUserByLastName("MOHAMED");
+        TreeSet<User> users = dbHelper.getUserByLastName("a");
         for (User u : users) {
             Usermaster cm = new Usermaster();
             cm.setId(u.getId());

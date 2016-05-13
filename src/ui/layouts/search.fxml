@@ -3,34 +3,112 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
-<?import com.jfoenix.controls.JFXTreeTableColumn?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.layout.HBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import de.jensd.fx.fontawesome.Icon?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.collections.*?>
+<?import de.jensd.fx.fontawesome.Icon?>
+
+<?import javafx.scene.control.ScrollBar?>
 <BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.search_controller" stylesheets="/ui/style/style_search.css">
     <top>
-        <fx:include source="communs/toolbar.fxml" fx:id="toolBar"/>
-    </top>
+        <ToolBar>
+            <items>
+                <ImageView fitHeight="230.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="/ui/images/esi.jpg" />
+                    </image>
+                </ImageView>
+                <BorderPane>
+                    <top>
+                        <Pane>
+                            <fx:define>
+                                <Image fx:id="btnImage" url="/ui/images/close_green.png" />
+                            </fx:define>
+                            <JFXButton LayoutX="549" fx:id="btnMinim" alignment="TOP_RIGHT" mnemonicParsing="false"
+                                       onAction="#minimizeButton">
+                                <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                                        <image>
+                                            <Image url="/ui/images/minim.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </JFXButton>
+                            <JFXButton LayoutX="574" fx:id="btnClose" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
+                                <graphic>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
+                                        <image>
+                                            <Image url="/ui/images/close_blue.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </JFXButton>
+                        </Pane>
+                    </top>
+                    <bottom>
+                        <HBox spacing="20" alignment="BOTTOM_CENTER">
+                            <Label text="Search by: " alignment="CENTER"/>
+                            <JFXComboBox stylesheets="/ui/style/jfoenix-main-demo.css" >
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <Label>
+                                            Item 1
+                                        </Label>
+                                        <Label>
+                                            Item 2
+                                        </Label>
+                                        <Label>
+                                            Item 3
+                                        </Label>
+                                        <Label>
+                                            Item 4
+                                        </Label>
+                                        <Label>
+                                            Item 5
+                                        </Label>
+                                    </FXCollections>
+                                </items>
+                            </JFXComboBox>
+                            <JFXTextField promptText="Search ..."/>
+                            <JFXButton text="Search"/>
+                        </HBox>
+                    </bottom>
+                </BorderPane>
+            </items>
+        </ToolBar>    </top>
     <left>
         <fx:include source="communs/left_list.fxml"/>
     </left>
    <center>
        <VBox>
            <Pane BorderPane.alignment="CENTER_LEFT">
-               <TableView fx:id="searchTable" prefHeight="400.0" prefWidth="800.0">
-                   <columns>
-                       <TableColumn fx:id="idColumn" id="table-column" prefWidth="39.0" text="ID" />
-                       <TableColumn fx:id="fnameColumn" id="table-column" prefWidth="122.0" text="First Name" />
-                       <TableColumn fx:id="lnameColumn" id="table-column" prefWidth="122.0" text="Last Name" />
-                       <TableColumn fx:id="bdateColumn" id="table-column" minWidth="0.0" prefWidth="112.0" text="Birth Date" />
-                       <TableColumn fx:id="bplaceColumn" id="table-column" prefWidth="118.0" text="Birth Place" />
-                       <TableColumn fx:id="sexColumn" id="table-column" prefWidth="118.0" text="Sex" />
-                       <TableColumn fx:id="addressColumn" id="table-column" prefWidth="83.0" text="Address" />
-                   </columns>
-               </TableView>
+               <ScrollBar orientation="HORIZONTAL" min="0" max="100" value="0"/>
+                   <TableView fx:id="searchTable" prefHeight="400.0" prefWidth="800.0" >
+                       <columns>
+                           <TableColumn fx:id="idColumn" id="table-column" prefWidth="39.0" text="ID" />
+                           <TableColumn fx:id="fnameColumn" id="table-column" prefWidth="122.0" text="First Name" />
+                           <TableColumn fx:id="lnameColumn" id="table-column" prefWidth="122.0" text="Last Name" />
+                           <TableColumn fx:id="bdateColumn" id="table-column" minWidth="0.0" prefWidth="112.0" text="Birth Date" />
+                           <TableColumn fx:id="bplaceColumn" id="table-column" prefWidth="118.0" text="Birth Place" />
+                           <TableColumn fx:id="sexColumn" id="table-column" prefWidth="118.0" text="Sex" />
+                           <TableColumn fx:id="addressColumn" id="table-column" prefWidth="83.0" text="Address" />
+                       </columns>
+                   </TableView>
             </Pane>
            <JFXButton fx:id="btnSearch" text="Search" mnemonicParsing="false" buttonType="RAISED">
            </JFXButton>

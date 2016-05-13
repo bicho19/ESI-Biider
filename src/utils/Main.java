@@ -27,7 +27,7 @@ public class Main extends Application {
 
     @Override public void start(Stage primaryStage) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("/ui/layouts/add.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/ui/layouts/search.fxml"));
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());

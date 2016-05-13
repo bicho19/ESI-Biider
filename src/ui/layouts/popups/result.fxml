@@ -12,33 +12,6 @@
             prefWidth="540.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.communs">
     <top>
-        <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" BorderPane.alignment="CENTER">
-            <items>
-                <Pane>
-                    <fx:define>
-                        <Image fx:id="btnImage" url="/ui/images/close_green.png" />
-                    </fx:define>
-                    <Button LayoutX="469" fx:id="btnMinim" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#minimizeButton">
-                        <graphic>
-                            <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
-                                <image>
-                                    <Image url="/ui/images/minim.png" />
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                    <Button LayoutX="495" fx:id="btnClose" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeButtonAction">
-                        <graphic>
-                            <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
-                                <image>
-                                    <Image url="/ui/images/close_green.png" />
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                </Pane>
-            </items>
-        </ToolBar>
     </top>
     <center>
         <Pane>
