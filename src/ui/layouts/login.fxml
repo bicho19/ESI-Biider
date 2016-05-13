@@ -22,7 +22,6 @@
     <top>
         <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed"
                  prefHeight="57.0" prefWidth="350.0" BorderPane.alignment="CENTER">
-            <items>
                 <ImageView fitHeight="40.0" fitWidth="200.0" preserveRatio="true" >
                         <Image url="/ui/images/logo.png" />
                 </ImageView>
@@ -34,19 +33,15 @@
                                buttonType="RAISED">
                         <graphic>
                             <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
-                                <image>
                                     <Image url="/ui/images/close_green.png" />
-                                </image>
                             </ImageView>
                         </graphic>
                     </JFXButton>
                 </Pane>
-            </items>
         </ToolBar>
     </top>
     <center>
         <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
-            <children>
                 <JFXTextField fx:id="usernameField" prefHeight="40" promptText="Username">
                     <VBox.margin>
                         <Insets left="40.0" right="40.0" />
@@ -59,21 +54,18 @@
                 </JFXPasswordField>
                 <Label  text="" fx:id="errorMessage">
                     <VBox.margin>
-                        <Insets left="-170.0" right="40.0" />
+                        <Insets left="-100.0" right="40.0" />
                     </VBox.margin>
                 </Label>
                 <HBox alignment="CENTER_LEFT" fillHeight="false">
-                    <children>
                         <JFXButton fx:id="btnLogin" mnemonicParsing="false" buttonType="RAISED" prefHeight="25.0" prefWidth="100.0"
                                     text="Login" defaultButton="true" onAction="#handleLogin"
                                    style="-fx-background-color: #4CAF50;-fx-font-size:14px;-fx-text-fill: white" >
                         </JFXButton>
-                    </children>
                     <VBox.margin>
                         <Insets left="50.0" right="40.0" />
                     </VBox.margin>
                 </HBox>
-            </children>
             <BorderPane.margin>
                 <Insets />
             </BorderPane.margin>

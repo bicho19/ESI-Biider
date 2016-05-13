@@ -7,7 +7,7 @@
     -fx-font-weight: bold;
 }
 
-#btnMydb:hover,#btnHelp:hover,#btnSettings:hover,#btnAdd:hover{
+#btnHome:hover,#btnHelp:hover,#btnSettings:hover,#btnAdd:hover,#btnSearch:hover{
     -fx-font-weight: bold;
 }
 

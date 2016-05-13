@@ -17,10 +17,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import utils.Main;
 
-/**
- * Created by Creator on 21/04/2016.
- */
-
 public class communs {
 
     @FXML Button btnClose = new Button();
@@ -28,72 +24,24 @@ public class communs {
     @FXML JFXButton btnSettings = new JFXButton() ;
     @FXML JFXButton btnMinim = new JFXButton();
     @FXML JFXButton btnAbout = new JFXButton();
-    @FXML JFXButton btnMydb = new JFXButton();
     @FXML JFXButton btnHelp = new JFXButton();
     @FXML JFXButton btnAdd = new JFXButton();
-
-
-
+    @FXML JFXButton btnSearch = new JFXButton();
+    @FXML JFXButton btnHome = new JFXButton();
 
     private double xOffset;
     private double yOffset;
 
-
-    @FXML public void onSettingMoved(){
+    /*
+    * Fisrt method to change the style on mouse move
+    * Second method to change the style on mouse leave
+    * Third method to handle the click action (Change the scene)*/
+    @FXML public void onSettingMoved(Event event){
         btnSettings.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
     }
-    @FXML public void onSettingLeave(){
+    @FXML public void onSettingLeave(Event event){
         btnSettings.setBackground(null);
     }
-    @FXML public void onAddMoved(){
-        btnAdd.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
-    }
-    @FXML public void onAddLeave(){
-        btnAdd.setBackground(null);
-    }
-    @FXML public void onHelpMoved(){
-        btnHelp.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
-    }
-    @FXML public void onHelpLeave(){
-        btnHelp.setBackground(null);
-    }
-    @FXML public void onAboutMoved(){
-        btnAbout.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
-    }
-    @FXML public void onAboutLeave(){
-        btnAbout.setBackground(null);
-    }
-    @FXML public void onMydbMoved(){
-        btnMydb.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
-    }
-    @FXML public void onMydbLeave(){
-        btnMydb.setBackground(null);
-    }
-
-    // These two methods helps to move the window from any place on the scene
-    @FXML public void setOnMousePressed(MouseEvent event){
-        xOffset = event.getSceneX();
-        yOffset = event.getSceneY();
-    }
-    @FXML public void setOnMouseDragged(MouseEvent event){
-        Stage stage = (Stage) toolBar.getScene().getWindow();
-        stage.setX(event.getScreenX() - xOffset);
-        stage.setY(event.getScreenY() - yOffset );
-    }
-    // These 2 method are obvious
-    @FXML public void closeButtonAction(){
-        // get a handle to the stage
-        // The Exception is for the overriding
-        Stage stage = (Stage) btnClose.getScene().getWindow();
-        // do what you have to do
-        stage.close();
-    }
-    @FXML public void minimizeButton(){
-        Stage stage=(Stage) btnMinim.getScene().getWindow();
-        stage.setIconified(true);
-    }
-
-    // These 4 methods to change between the scenes
     @FXML public void onSettingsAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/settings.fxml")));
         Scene scene = new Scene(Main.getRoot());
@@ -111,6 +59,37 @@ public class communs {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    @FXML public void onAddMoved(Event event){
+        btnAdd.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onAddLeave(Event event){
+        btnAdd.setBackground(null);
+    }
+    @FXML public void onAddAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/add.fxml")));
+        Scene scene = new Scene(Main.getRoot());
+        Stage stage = Main.getStage();
+        Main.setStage(stage);
+
+
+        stage = (Stage) btnAdd.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
+        stage.setTitle("Add");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML public void onHelpMoved(Event event){
+        btnHelp.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onHelpLeave(Event event){
+        btnHelp.setBackground(null);
     }
     @FXML public void onHelpAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/help.fxml")));
@@ -132,23 +111,12 @@ public class communs {
         stage.show();
 
     }
-    @FXML public void onMydbAction(ActionEvent actionEvent) throws Exception {
-        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/mydb.fxml")));
-        Scene scene = new Scene(Main.getRoot());
-        Stage stage = Main.getStage();
-        Main.setStage(stage);
 
-        btnMydb.setStyle("-fx-font-weight: bold");
-        stage = (Stage) btnMydb.getScene().getWindow();
-        if (stage.isMaximized()){
-            stage.setMaximized(true);
-        }
-
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
-        stage.setTitle("Mydb");
-        stage.setScene(scene);
-        stage.show();
-
+    @FXML public void onAboutMoved(Event event){
+        btnAbout.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onAboutLeave(Event event){
+        btnAbout.setBackground(null);
     }
     @FXML public void onAboutAction(ActionEvent actionEvent) throws Exception {
         Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/about.fxml")));
@@ -167,45 +135,80 @@ public class communs {
         stage.setScene(scene);
         stage.show();
     }
-    @FXML public void onAddAction(ActionEvent actionEvent) throws Exception {
-        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/add.fxml")));
+
+    @FXML public void onHomeMoved(Event event) {
+        btnHome.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onHomeLeave(Event event) {
+        btnHome.setBackground(null);
+    }
+    @FXML public void onHomeAction(ActionEvent actionEvent) throws Exception{
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/home.fxml")));
         Scene scene = new Scene(Main.getRoot());
         Stage stage = Main.getStage();
         Main.setStage(stage);
 
-
-        stage = (Stage) btnAdd.getScene().getWindow();
+        stage = (Stage) btnHome.getScene().getWindow();
         if (stage.isMaximized()){
             stage.setMaximized(true);
         }
 
+        btnHome.setStyle("-fx-font-weight: bold");
         scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
-        stage.setTitle("Add");
+        stage.setTitle("Home");
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void onHomeMoved(Event event) {
 
     }
 
-    public void onHomeLeave(Event event) {
+    @FXML public void onSearchMoved(Event event) {
+        btnSearch.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+
+    }
+    @FXML public void onSearchLeave(Event event) {
+        btnSearch.setBackground(null);
+
+    }
+    @FXML public void onSearchAction(ActionEvent actionEvent) throws Exception {
+        Main.setRoot(FXMLLoader.load(getClass().getResource("/ui/layouts/search.fxml")));
+        Scene scene = new Scene(Main.getRoot());
+        Stage stage = Main.getStage();
+        Main.setStage(stage);
+
+        stage = (Stage) btnSearch.getScene().getWindow();
+        if (stage.isMaximized()){
+            stage.setMaximized(true);
+        }
+
+        btnSearch.setStyle("-fx-font-weight: bold");
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
+        stage.setTitle("Search");
+        stage.setScene(scene);
+        stage.show();
 
     }
 
-    public void onHomeAction(ActionEvent actionEvent) {
-
+    // These two methods helps to move the window from any place on the scene
+    @FXML public void setOnMousePressed(MouseEvent event){
+        xOffset = event.getSceneX();
+        yOffset = event.getSceneY();
+    }
+    @FXML public void setOnMouseDragged(MouseEvent event){
+        Stage stage = (Stage) toolBar.getScene().getWindow();
+        stage.setX(event.getScreenX() - xOffset);
+        stage.setY(event.getScreenY() - yOffset );
+    }
+    // These 2 method are obvious
+    @FXML public void closeButtonAction(ActionEvent actionEvent) throws Exception{
+        // get a handle to the stage
+        // The Exception is for the overriding
+        Stage stage = (Stage) btnClose.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
+    @FXML public void minimizeButton(){
+        Stage stage=(Stage) btnMinim.getScene().getWindow();
+        stage.setIconified(true);
     }
 
-    public void onSearchMoved(Event event) {
-
-    }
-
-    public void onSearchLeave(Event event) {
-
-    }
-
-    public void onSearchAction(ActionEvent actionEvent) {
-
-    }
 }

@@ -7,6 +7,7 @@ public class Account {
     private String accType;
 
     public Account(){}
+<<<<<<< HEAD
     public Account(String user, String pass, String type){
         username = user;
         password = pass;
@@ -16,6 +17,16 @@ public class Account {
     public Account(String user, String pass){
         username = user;
         password = pass;
+=======
+    public Account(String user, String pass){
+        username = user;
+        password = pass;
+    }
+    public Account(String user, String pass, String type){
+        username = user;
+        password = pass;
+        accType = type;
+>>>>>>> origin/master
     }
 
     @Override

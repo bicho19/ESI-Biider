@@ -66,12 +66,16 @@ public class add_controller extends communs implements Initializable{
         stage.show();
 
     }
-    @FXML public void btnParcourir(ActionEvent actionEvent) {
+    @FXML public void onLoadClick (ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Dialog");
         File file = fileChooser.showOpenDialog(new Stage());
-        String path = file.getPath();
-        System.out.println(path);
+        if (file != null){
+            String path = file.getPath();
+            System.out.println(path);
+        }else{
+            System.out.println("No file");
+        }
     }
 
     @Override

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controllers.mydb_controller" stylesheets="/ui/style/style_mydb.css">
+            fx:controller="controllers.search_controller" stylesheets="/ui/style/style_search.css">
     <top>
         <fx:include source="communs/toolbar.fxml" fx:id="toolBar"/>
     </top>
@@ -18,7 +18,6 @@
    <center>
        <VBox>
            <Pane BorderPane.alignment="CENTER_LEFT">
-               <children>
                    <JFXTreeTableView >
                        <columns>
                            <JFXTreeTableColumn id="table-column" prefWidth="39.0" text="ID" />
@@ -29,7 +28,6 @@
                            <JFXTreeTableColumn id="table-column" prefWidth="83.0" text="Address" />
                        </columns>
                    </JFXTreeTableView>
-               </children>
             </Pane>
            <JFXButton fx:id="btnSearch" text="Search" mnemonicParsing="false" buttonType="RAISED">
            </JFXButton>

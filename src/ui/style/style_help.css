@@ -7,7 +7,7 @@
     -fx-font-weight: bold;
 }
 
-#btnMydb:hover,#btnAbout:hover,#btnSettings:hover,#btnAdd:hover{
+#btnHome:hover,#btnAbout:hover,#btnSettings:hover,#btnAdd:hover,#btnSearch:hover{
     -fx-font-weight: bold;
 }
 
@@ -119,7 +119,7 @@
 
 .icons-badge {
     -fx-badge-fill: BLUE;
-    -fx-badge-scale: 3.0;
+    -fx-badge-scale: 3.0px;
     -fx-mask-type: CIRCLE;
 }
 

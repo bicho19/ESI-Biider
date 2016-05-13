@@ -3,15 +3,11 @@
     -fx-border-color: transparent;
 }
 
-.jfx-radio-button .dot {
-    -fx-fill: #4c86af;
-}
-
-#btnAdd{
+#btnSearch{
     -fx-font-weight: bold;
 }
 
-#btnHome:hover,#btnHelp:hover,#btnSettings:hover,#btnAbout:hover,#btnSearch:hover{
+#btnHome:hover,#btnHelp:hover,#btnSettings:hover,#btnAdd:hover,#btnAbout:hover{
     -fx-font-weight: bold;
 }
 
@@ -52,7 +48,7 @@
     -fx-background-color: WHITE;
     -fx-prompt-text-fill: #808080;
     -fx-alignment: top-left ;
-    -fx-focus-color: #4c86af;
+    -fx-focus-color: #4CAF50;
     -fx-unfocus-color: #4d4d4d;
     -fx-max-width: 300;
     -fx-font-size: 15px;
@@ -104,7 +100,7 @@
 
 .jfx-progress-bar{
     -fx-track-color: #C8C8C8 ;
-    -fx-progress-color: #4c86af;
+    -fx-progress-color: #0F9D58;
     -fx-stroke-width:3;
 }
 
@@ -404,7 +400,7 @@
 
 .animated-option-button {
     -fx-pref-width:50px;
-    -fx-background-color:#4c86af;
+    -fx-background-color:#44B449;
     -fx-background-radius:50px;
     -fx-pref-height:50px;
     -fx-text-fill:white;
