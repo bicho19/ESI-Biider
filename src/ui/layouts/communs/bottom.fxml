@@ -2,17 +2,17 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
-
-
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" fx:controller="controllers.communs"
       minWidth="-Infinity" prefHeight="30.0" prefWidth="800.0"
       xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" >
     <children>
         <JFXButton id="btnLogOut" fx:id="btnLogOut" mnemonicParsing="false"
-                   prefHeight="30.0" prefWidth="180.0" text="logout" buttonType="FLAT" alignment="CENTER_LEFT">
+                   prefHeight="30.0" prefWidth="180.0" text="logout" buttonType="FLAT" alignment="CENTER_LEFT"
+                   onMouseMoved="#onLogOutMoved" onMouseExited="#onLogOutLeave" onAction="#onLogOutAction">
             <graphic>
                 <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
                     <image>
