@@ -7,15 +7,18 @@ public class Account {
     private String accType;
 
     public Account(){}
-    public Account(String user, String pass){
-        username = user;
-        password = pass;
-    }
     public Account(String user, String pass, String type){
         username = user;
         password = pass;
         accType = type;
     }
+
+    public Account(String user, String pass){
+        username = user;
+        password = pass;
+
+    }
+
 
     @Override
     public String toString (){
