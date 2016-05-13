@@ -74,7 +74,7 @@ public class add_controller extends communs implements Initializable{
             String path = file.getPath();
             System.out.println(path);
         }else{
-            System.out.println("No file");
+            System.out.println("No file selected");
         }
     }
 

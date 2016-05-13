@@ -6,6 +6,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
@@ -15,6 +16,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import utils.Main;
 
 public class communs {
@@ -28,6 +30,7 @@ public class communs {
     @FXML JFXButton btnAdd = new JFXButton();
     @FXML JFXButton btnSearch = new JFXButton();
     @FXML JFXButton btnHome = new JFXButton();
+    @FXML JFXButton btnLogOut = new JFXButton();
 
     private double xOffset;
     private double yOffset;
@@ -36,6 +39,30 @@ public class communs {
     * Fisrt method to change the style on mouse move
     * Second method to change the style on mouse leave
     * Third method to handle the click action (Change the scene)*/
+
+    @FXML public void onLogOutMoved(Event event){
+        btnLogOut.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    @FXML public void onLogOutLeave(Event event){
+        btnLogOut.setBackground(null);
+    }
+    @FXML public void onLogOutAction(ActionEvent actionEvent) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/ui/layouts/login.fxml"));
+        Scene scene = new Scene(root);
+
+        Stage stage = new Stage();
+        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
+        stage.initStyle(StageStyle.TRANSPARENT);
+
+        stage.setTitle("ABC");
+        stage.setScene(scene);
+        stage.show();
+
+        Stage stage1 = (Stage) this.btnLogOut.getScene().getWindow();
+        stage1.close();
+    }
+
+
     @FXML public void onSettingMoved(Event event){
         btnSettings.setBackground(new Background(new BackgroundFill(Color.rgb(0,0,0,0.02), CornerRadii.EMPTY, Insets.EMPTY)));
     }
