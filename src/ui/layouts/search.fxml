@@ -13,15 +13,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import de.jensd.fx.fontawesome.Icon?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.collections.*?>
-<?import de.jensd.fx.fontawesome.Icon?>
 
 <?import javafx.scene.control.ScrollBar?>
+<?import java.lang.String?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.geometry.Insets?>
 <BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.search_controller" stylesheets="/ui/style/style_search.css">
@@ -61,32 +62,32 @@
                         </Pane>
                     </top>
                     <bottom>
-                        <HBox spacing="20" alignment="BOTTOM_CENTER">
+                        <HBox spacing="20" alignment="BOTTOM_CENTER" fx:id="hBox">
                             <Label text="Search by: " alignment="CENTER"/>
-                            <JFXComboBox stylesheets="/ui/style/jfoenix-main-demo.css" >
+                            <JFXComboBox stylesheets="/ui/style/jfoenix-main-demo.css" fx:id="jfxComboBox">
                                 <items>
                                     <FXCollections fx:factory="observableArrayList">
-                                        <Label>
-                                            Item 1
-                                        </Label>
-                                        <Label>
-                                            Item 2
-                                        </Label>
-                                        <Label>
-                                            Item 3
-                                        </Label>
-                                        <Label>
-                                            Item 4
-                                        </Label>
-                                        <Label>
-                                            Item 5
-                                        </Label>
+                                        <String fx:value="ID" />
+                                        <String fx:value="First Name" />
+                                        <String fx:value="Last Name" />
+                                        <String fx:value="Full Name" />
+                                        <String fx:value="Wilaya" />
+                                        <String fx:value="Photo" />
                                     </FXCollections>
                                 </items>
+                                <value>
+                                    <String fx:value="ID"/>
+                                </value>
                             </JFXComboBox>
-                            <JFXTextField promptText="Search ..."/>
-                            <JFXButton text="Search"/>
-                        </HBox>
+                            <JFXTextField promptText="Search..." fx:id="commun"/>
+                            <JFXButton text="Search" fx:id="searchButton" onAction="#performSearch" defaultButton="true"
+                                       style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
+                                <graphic>
+                                    <ImageView fitHeight="15" fitWidth="15">
+                                        <Image url="/ui/images/search.png"/>
+                                    </ImageView>
+                                </graphic>
+                            </JFXButton>                        </HBox>
                     </bottom>
                 </BorderPane>
             </items>
@@ -98,7 +99,7 @@
        <VBox>
            <Pane BorderPane.alignment="CENTER_LEFT">
                <ScrollBar orientation="HORIZONTAL" min="0" max="100" value="0"/>
-                   <TableView fx:id="searchTable" prefHeight="400.0" prefWidth="800.0" >
+                   <TableView fx:id="searchTable" prefHeight="300.0" prefWidth="800.0" >
                        <columns>
                            <TableColumn fx:id="idColumn" id="table-column" prefWidth="39.0" text="ID" />
                            <TableColumn fx:id="fnameColumn" id="table-column" prefWidth="122.0" text="First Name" />
@@ -110,9 +111,19 @@
                        </columns>
                    </TableView>
             </Pane>
-           <JFXButton fx:id="btnSearch" text="Search" mnemonicParsing="false" buttonType="RAISED">
-           </JFXButton>
+           <HBox alignment="BOTTOM_CENTER" spacing="80">
+               <JFXButton text="Delete" buttonType="RAISED"
+                          style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
+                <HBox.margin>
+                    <Insets top="20"/>
+                </HBox.margin>
+               </JFXButton>
+
+               <JFXButton text="Change" buttonType="RAISED"
+                          style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white"/>
+           </HBox>
        </VBox>
+
    </center>
    <bottom>
        <fx:include source="communs/bottom.fxml"/>

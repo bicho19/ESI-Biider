@@ -857,47 +857,50 @@ public class DBHelper {
     }
 
     public User getUserById(String id){
-        User user = new User();
-        ArrayList<String> photos = new ArrayList<String>();
-        connect = CoonectionConfiguration.getConnection();
-        try {
-            preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE users.id =userphoto.user_id AND id = ?");
-            preparedStatement.setString(1,id);
-            resultSet = preparedStatement.executeQuery();
-            if(!resultSet.isBeforeFirst())user = null;
-            else {
-                while (resultSet.next()){
-                    user = setUserFromResult(resultSet);
-                    photos.add(resultSet.getString("user_photo"));
+        if(id !=null && !id.isEmpty()){
+            User user = new User();
+            ArrayList<String> photos = new ArrayList<String>();
+            connect = CoonectionConfiguration.getConnection();
+            try {
+                preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE users.id =userphoto.user_id AND id = ?");
+                preparedStatement.setString(1,id);
+                resultSet = preparedStatement.executeQuery();
+                if(!resultSet.isBeforeFirst())user = null;
+                else {
+                    while (resultSet.next()){
+                        user = setUserFromResult(resultSet);
+                        photos.add(resultSet.getString("user_photo"));
+                    }
+                    user.setPhotos(photos);
                 }
-                user.setPhotos(photos);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if(resultSet != null){
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if(resultSet != null){
+                    try {
+                        resultSet.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(preparedStatement != null){
+                    try {
+                        preparedStatement.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(connect != null){
+                    try {
+                        connect.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
-            if(preparedStatement != null){
-                try {
-                    preparedStatement.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if(connect != null){
-                try {
-                    connect.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+            return user;
         }
-        return user;
+        else return null;
     }
 
     public TreeSet<User> getUserByFullName(String lName, String fName){
@@ -906,10 +909,10 @@ public class DBHelper {
         int j=0;
         connect = CoonectionConfiguration.getConnection();
         try {
-            preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE last_name = ? AND first_name = ?" +
-                                                        "AND users.id = userphoto.user_id");
-            preparedStatement.setString(1,lName);
-            preparedStatement.setString(2,fName);
+            preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE last_name LIKE ? " +
+                                                          "AND first_name LIKE ? AND users.id = userphoto.user_id");
+            preparedStatement.setString(1,'%'+lName+'%');
+            preparedStatement.setString(2,'%'+fName+'%');
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 result.add(setUserFromResult(resultSet));
@@ -953,9 +956,9 @@ public class DBHelper {
         int j=0;
         connect = CoonectionConfiguration.getConnection();
         try {
-            preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE first_name = ?" +
+            preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE first_name LIKE ?" +
                     "AND users.id = userphoto.user_id");
-            preparedStatement.setString(1,fName);
+            preparedStatement.setString(1,'%'+fName+'%');
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 result.add(setUserFromResult(resultSet));
@@ -999,9 +1002,9 @@ public class DBHelper {
         int j=0;
         connect = CoonectionConfiguration.getConnection();
         try {
-            preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE last_name = ?" +
+            preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE last_name LIKE ?" +
                     "AND users.id = userphoto.user_id");
-            preparedStatement.setString(1,lName);
+            preparedStatement.setString(1,'%'+lName+'%');
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 result.add(setUserFromResult(resultSet));
@@ -1043,9 +1046,9 @@ public class DBHelper {
         TreeSet<User> result = new TreeSet<>();
         connect = CoonectionConfiguration.getConnection();
         try {
-            preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE birth_place = ?" +
+            preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE birth_place LIKE ?" +
                                                             "AND users.id = userphoto.user_id");
-            preparedStatement.setString(1,birthPlace);
+            preparedStatement.setString(1,'%'+birthPlace+'%');
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 result.add(setUserFromResult(resultSet));
@@ -1088,10 +1091,10 @@ public class DBHelper {
         connect = CoonectionConfiguration.getConnection();
         try {
             preparedStatement = connect.prepareStatement("SELECT *,user_photo FROM users,userphoto WHERE birth_place = ?" +
-                    "AND last_name = ? AND first_name = ? AND users.id = userphoto.user_id");
-            preparedStatement.setString(1,bP);
-            preparedStatement.setString(2,lName);
-            preparedStatement.setString(3,fName);
+                    "AND last_name LIKE ? AND first_name LIKE ? AND users.id = userphoto.user_id");
+            preparedStatement.setString(1,'%'+bP+'%');
+            preparedStatement.setString(2,'%'+lName+'%');
+            preparedStatement.setString(3,'%'+fName+'%');
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 result.add(setUserFromResult(resultSet));
