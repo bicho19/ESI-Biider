@@ -27,11 +27,11 @@ public class Main extends Application {
 
     @Override public void start(Stage primaryStage) throws IOException {
 
-        root = FXMLLoader.load(getClass().getResource("/ui/layouts/search.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/ui/layouts/popups/image_list.fxml"));
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
-        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        //scene.getStylesheets().add(getClass().getResource("/ui/style/style_add.css").toExternalForm());
+        primaryStage.initStyle(StageStyle.DECORATED);
 
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(scene);

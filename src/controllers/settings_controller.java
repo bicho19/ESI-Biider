@@ -22,7 +22,7 @@ public class settings_controller extends communs{
             Scene scene = new Scene(root);
 
             Stage stage = new Stage();
-            scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/ui/style/style_add.css").toExternalForm());
 
             stage.setTitle("ABC");
             stage.setScene(scene);

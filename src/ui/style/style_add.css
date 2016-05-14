@@ -27,7 +27,7 @@
     src:"/resources/roboto/Roboto-Regular.ttf";
 }
 
-.tool-bar, .tab, .tab-pane{
+.tool-bar{
     -fx-background-color: linear-gradient(to right, #eaeaea,#ffffff);
     -fx-background-size: cover;
 }

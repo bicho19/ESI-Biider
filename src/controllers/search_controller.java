@@ -72,7 +72,6 @@ public class search_controller extends communs implements Initializable{
                     }catch (Exception e){
                         e.printStackTrace();
                     }
-
                 }
                 // save the selected row to use it in the delete and update method
                 selectedRow=row;
