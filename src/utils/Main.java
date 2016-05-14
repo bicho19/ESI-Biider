@@ -31,7 +31,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(scene);

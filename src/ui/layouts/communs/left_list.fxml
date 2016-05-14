@@ -20,7 +20,7 @@
                    onMouseMoved="#onSearchMoved" onMouseExited="#onSearchLeave" buttonType="FLAT" onAction="#onSearchAction">
             <graphic>
                 <ImageView fitHeight="15.0" fitWidth="15.0" nodeOrientation="RIGHT_TO_LEFT">
-                        <Image url="/ui/images/search.png" />
+                        <Image url="/ui/images/search_blue.png" />
                 </ImageView>
             </graphic>
         </JFXButton>

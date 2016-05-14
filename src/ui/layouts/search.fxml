@@ -23,7 +23,6 @@
 <?import java.lang.String?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.StackPane?>
 <BorderPane onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed" prefHeight="600.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.search_controller" stylesheets="/ui/style/style_search.css">
@@ -98,28 +97,29 @@
     </left>
    <center>
        <VBox>
-           <StackPane BorderPane.alignment="CENTER_LEFT">
+           <Pane BorderPane.alignment="CENTER_LEFT">
+               <ScrollBar orientation="HORIZONTAL" min="0" max="100" value="0"/>
                    <TableView fx:id="searchTable" prefHeight="300.0" prefWidth="800.0" >
                        <columns>
-                           <TableColumn fx:id="idColumn" id="table-column" prefWidth="80.0" text="ID" />
+                           <TableColumn fx:id="idColumn" id="table-column" prefWidth="39.0" text="ID" />
                            <TableColumn fx:id="fnameColumn" id="table-column" prefWidth="122.0" text="First Name" />
                            <TableColumn fx:id="lnameColumn" id="table-column" prefWidth="122.0" text="Last Name" />
-                           <TableColumn fx:id="bdateColumn" id="table-column" prefWidth="80.0" text="Birth Date" />
-                           <TableColumn fx:id="bplaceColumn" id="table-column" prefWidth="80.0" text="Birth Place" />
-                           <TableColumn fx:id="sexColumn" id="table-column" prefWidth="50.0" text="Sex" />
-                           <TableColumn fx:id="addressColumn" id="table-column" prefWidth="200.0" text="Address" />
+                           <TableColumn fx:id="bdateColumn" id="table-column" minWidth="0.0" prefWidth="112.0" text="Birth Date" />
+                           <TableColumn fx:id="bplaceColumn" id="table-column" prefWidth="118.0" text="Birth Place" />
+                           <TableColumn fx:id="sexColumn" id="table-column" prefWidth="118.0" text="Sex" />
+                           <TableColumn fx:id="addressColumn" id="table-column" prefWidth="83.0" text="Address" />
                        </columns>
                    </TableView>
-            </StackPane>
+            </Pane>
            <HBox alignment="BOTTOM_CENTER" spacing="80">
-               <JFXButton text="Delete" buttonType="RAISED" onAction="#onDeletePressed"
+               <JFXButton text="Delete" buttonType="RAISED"
                           style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
                 <HBox.margin>
                     <Insets top="20"/>
                 </HBox.margin>
                </JFXButton>
 
-               <JFXButton text="Update" buttonType="RAISED" onAction="#onUpdatepressed"
+               <JFXButton text="Change" buttonType="RAISED"
                           style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white"/>
            </HBox>
        </VBox>

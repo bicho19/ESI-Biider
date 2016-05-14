@@ -86,7 +86,7 @@
             <JFXTextField promptText="EX: Aymen" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <JFXTextField promptText="EX: Ali Taleb" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <JFXTextField promptText="EX: Sidi Bel Abbès" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <JFXDatePicker promptText="EX: 01/01/2016" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <JFXDatePicker fx:id="datePicker" promptText="EX: 01/01/2016" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <JFXTextField promptText="EX: Sidi Djilali" GridPane.columnIndex="2" GridPane.rowIndex="6" />
 
             <Pane GridPane.columnIndex="2" GridPane.rowIndex="7">

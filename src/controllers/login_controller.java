@@ -57,7 +57,7 @@ public class login_controller extends communs implements Initializable{
         Account account = new Account(user_name, pass_word);
         if (true/*dbHelper.checkLoginAccount(account)*/) {
             Account account1 = dbHelper.getAccountByUsername(user_name);
-            //sessions.setPrefs(user_name,true,account1.getAccType());
+            sessions.setPrefs(user_name,true,account1.getAccType());
             Parent root = FXMLLoader.load(getClass().getResource("/ui/layouts/home.fxml"));
             Scene scene = new Scene(root);
 
