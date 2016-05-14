@@ -114,7 +114,7 @@
                    </TableView>
             </Pane>
            <HBox alignment="BOTTOM_CENTER" spacing="80">
-               <JFXButton text="Delete" buttonType="RAISED"
+               <JFXButton text="Delete" buttonType="RAISED" onAction="#onDeleteClick"
                           style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
                    <HBox.margin>
                        <Insets top="20"/>
@@ -125,8 +125,7 @@
                        </ImageView>
                    </graphic>
                </JFXButton>
-
-               <JFXButton text="Update" buttonType="RAISED"
+               <JFXButton text="Update" buttonType="RAISED" onAction="#onUpdateClick"
                           style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
                    <graphic>
                        <ImageView fitHeight="15" fitWidth="15">

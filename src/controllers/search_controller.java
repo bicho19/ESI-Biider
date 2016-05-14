@@ -1,9 +1,6 @@
 package controllers;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import entities.User;
 import entities.Usermaster;
 import javafx.beans.value.ChangeListener;
@@ -49,6 +46,7 @@ public class search_controller extends communs implements Initializable{
     private String choose = "ID";
     public ObservableList<Usermaster> data;
     public DBHelper dbHelper;
+    private TableRow<Usermaster> selectedRow;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -76,6 +74,8 @@ public class search_controller extends communs implements Initializable{
                     }
 
                 }
+                // save the selected row to use it in the delete and update method
+                selectedRow=row;
             });
             return row ;
         });
@@ -164,10 +164,6 @@ public class search_controller extends communs implements Initializable{
         });
     }
 
-    @FXML public void onTableViewListener(){
-
-    }
-
     private void buildData() {
         data = FXCollections.observableArrayList();
         dbHelper = new DBHelper();
@@ -185,7 +181,6 @@ public class search_controller extends communs implements Initializable{
         }
         searchTable.setItems(data);
     }
-
     private void buildCellFactory() {
         idColumn.setCellValueFactory(new PropertyValueFactory<Usermaster,String>("id"));
         fnameColumn.setCellValueFactory(new PropertyValueFactory<Usermaster,String>("firstName"));
@@ -196,7 +191,7 @@ public class search_controller extends communs implements Initializable{
         addressColumn.setCellValueFactory(new PropertyValueFactory<Usermaster,String>("address"));
     }
 
-        public void performSearch(ActionEvent actionEvent) {
+    public void performSearch(ActionEvent actionEvent) {
             if (validateTextField(commun)) {
                 switch (choose) {
                     case "ID":
@@ -243,7 +238,6 @@ public class search_controller extends communs implements Initializable{
             data.add(cm);
         return data;
     }
-
     private ObservableList<Usermaster> searchByFirstName(String fName){
         ObservableList<Usermaster> data = FXCollections.observableArrayList();
         dbHelper = new DBHelper();
@@ -261,7 +255,6 @@ public class search_controller extends communs implements Initializable{
         }
         return data;
     }
-
     private ObservableList<Usermaster> searchByLastName(String lName){
         ObservableList<Usermaster> data = FXCollections.observableArrayList();
         dbHelper = new DBHelper();
@@ -279,7 +272,6 @@ public class search_controller extends communs implements Initializable{
         }
         return data;
     }
-
     private ObservableList<Usermaster> searchByFullName(String lName, String fName){
         ObservableList<Usermaster> data = FXCollections.observableArrayList();
         dbHelper = new DBHelper();
@@ -297,7 +289,6 @@ public class search_controller extends communs implements Initializable{
         }
         return data;
     }
-
     private ObservableList<Usermaster> searchByBirthPlace(String bPlace){
         ObservableList<Usermaster> data = FXCollections.observableArrayList();
         dbHelper = new DBHelper();
@@ -315,4 +306,29 @@ public class search_controller extends communs implements Initializable{
         }
         return data;
     }
+
+    public void onDeleteClick(ActionEvent actionEvent) {
+        System.out.println(selectedRow);
+    }
+    public void onUpdateClick(ActionEvent actionEvent) {
+        if (selectedRow!=null) {
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/ui/layouts/popups/update.fxml"));
+                Scene scene = new Scene(root);
+
+                Stage stage = new Stage();
+                stage.initStyle(StageStyle.DECORATED);
+                scene.getStylesheets().add(getClass().getResource("/ui/style/style_add.css").toExternalForm());
+
+                stage.setTitle("ABC");
+                stage.setScene(scene);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
 }
