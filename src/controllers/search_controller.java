@@ -363,23 +363,68 @@ public class search_controller extends communs implements Initializable{
 
     public void onDeletePressed(ActionEvent actionEvent) {
         Usermaster usermaster = searchTable.getSelectionModel().getSelectedItem();
-        ButtonType delete = new ButtonType("Delete", ButtonBar.ButtonData.OK_DONE);
-        ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Do you really want to delete this user ? ",delete,cancel);
-        alert.setTitle("User Delete");
-        alert.setHeaderText(null);
-        Optional<ButtonType> optional = alert.showAndWait();
-        if (optional.get() == delete){
-            searchTable.getItems().remove(usermaster);
-            dbHelper.deleteUser(usermaster.getId());
+        if (usermaster != null){
+            ButtonType delete = new ButtonType("Delete", ButtonBar.ButtonData.OK_DONE);
+            ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Do you really want to delete this user ? ",delete,cancel);
+            alert.setTitle("User Delete");
+            alert.setHeaderText(null);
+            Optional<ButtonType> optional = alert.showAndWait();
+            if (optional.get() == delete){
+                searchTable.getItems().remove(usermaster);
+                dbHelper.deleteUser(usermaster.getId());
 
+            }
         }
+
 
 
     }
 
     public void onUpdatepressed(ActionEvent actionEvent) {
         Usermaster usermaster = searchTable.getSelectionModel().getSelectedItem();
+        if(usermaster == null){
+            //showDialog(Alert.AlertType.ERROR,"Please enter your ID first");
+            return;
+        } else {
 
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ui/layouts/popups/update.fxml"));
+        fxmlLoader.setControllerFactory(new Callback<Class<?>, Object>() {
+            @Override
+            public Object call(Class<?> param) {
+                if(param == update_controller.class){
+                    update_controller updateController = new update_controller();
+                    updateController.setUsermaster(usermaster);
+                    return updateController;
+                } else {
+                    try {
+                        return param.newInstance();
+                    } catch (InstantiationException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return null;
+            }
+        });
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+                Scene scene = new Scene(root);
+
+                Stage stage = new Stage();
+                scene.getStylesheets().add(getClass().getResource("/ui/style/style_settings.css").toExternalForm());
+                stage.initStyle(StageStyle.DECORATED);
+
+                stage.setTitle("Update");
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+        }
     }
 }
