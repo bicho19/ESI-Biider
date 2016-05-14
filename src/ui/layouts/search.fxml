@@ -84,7 +84,7 @@
                                        style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
                                 <graphic>
                                     <ImageView fitHeight="15" fitWidth="15">
-                                        <Image url="/ui/images/search.png"/>
+                                        <Image url="/ui/images/search_white.png"/>
                                     </ImageView>
                                 </graphic>
                             </JFXButton>                        </HBox>
@@ -112,14 +112,14 @@
                    </TableView>
             </Pane>
            <HBox alignment="BOTTOM_CENTER" spacing="80">
-               <JFXButton text="Delete" buttonType="RAISED"
+               <JFXButton text="Delete" buttonType="RAISED" onAction="#onDeletePressed"
                           style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
                 <HBox.margin>
                     <Insets top="20"/>
                 </HBox.margin>
                </JFXButton>
 
-               <JFXButton text="Change" buttonType="RAISED"
+               <JFXButton text="Update" buttonType="RAISED" onAction="#onUpdatepressed"
                           style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white"/>
            </HBox>
        </VBox>
