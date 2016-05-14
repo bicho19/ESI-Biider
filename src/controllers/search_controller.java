@@ -2,7 +2,6 @@ package controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import entities.User;
 import entities.Usermaster;
@@ -11,16 +10,30 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Callback;
 import utils.DBHelper;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.TreeSet;
 
@@ -47,7 +60,8 @@ public class search_controller extends communs implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        buildCellFactory();
+        buildCellValueFactory();
+        searchTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         buildData();
         searchTable.setRowFactory( tv -> {
             TableRow<Usermaster> row = new TableRow<>();
@@ -132,7 +146,19 @@ public class search_controller extends communs implements Initializable{
                         hBox.getChildren().remove(lastName);
                         hBox.getChildren().remove(commun);
                         load.setText("Load");
+                        load.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                searchOnLoad(event);
+                            }
+                        });
                         capture.setText("Capture");
+                        capture.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                searchOnCapture(event);
+                            }
+                        });
                         hBox.getChildren().remove(searchButton);
                         hBox.getChildren().add(2,load);
                         hBox.getChildren().add(3,capture);
@@ -143,6 +169,8 @@ public class search_controller extends communs implements Initializable{
                 }
             }
         });
+
+
     }
 
     @FXML public void onTableViewListener(){
@@ -167,7 +195,7 @@ public class search_controller extends communs implements Initializable{
         searchTable.setItems(data);
     }
 
-    private void buildCellFactory() {
+    private void buildCellValueFactory() {
         idColumn.setCellValueFactory(new PropertyValueFactory<Usermaster,String>("id"));
         fnameColumn.setCellValueFactory(new PropertyValueFactory<Usermaster,String>("firstName"));
         lnameColumn.setCellValueFactory(new PropertyValueFactory<Usermaster,String>("lastName"));
@@ -176,6 +204,7 @@ public class search_controller extends communs implements Initializable{
         sexColumn.setCellValueFactory(new PropertyValueFactory<Usermaster,String>("sex"));
         addressColumn.setCellValueFactory(new PropertyValueFactory<Usermaster,String>("address"));
     }
+
 
         public void performSearch(ActionEvent actionEvent) {
             if (validateTextField(commun)) {
@@ -197,10 +226,43 @@ public class search_controller extends communs implements Initializable{
                         break;
                     case "Photo":
                         // Put here searchByPhoto
+
                         System.out.println("Search by photo");
                         break;
                 }
             }
+    }
+    public void searchOnCapture(ActionEvent actionEvent){
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/ui/layouts/popups/webcam.fxml"));
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+            scene.getStylesheets().add(getClass().getResource("/ui/style/style_settings.css").toExternalForm());
+            stage.initStyle(StageStyle.UNDECORATED);
+
+            stage.setTitle("ABC");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+    public void searchOnLoad (ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Dialog");
+        File file = fileChooser.showOpenDialog(new Stage());
+        if (file != null){
+            String path = file.getPath();
+            System.out.println(path);
+        }else{
+            System.out.println("No file selected");
+        }
     }
 
     private boolean validateTextField(JFXTextField textField) {
@@ -214,14 +276,16 @@ public class search_controller extends communs implements Initializable{
         dbHelper = new DBHelper();
         User user = dbHelper.getUserById(id);
             Usermaster cm = new Usermaster();
-            cm.setId(user.getId());
-            cm.setFirstName(user.getFirstName());
-            cm.setLastName(user.getLastName());
-            cm.setBirthDate(user.getBirthDate().toString());
-            cm.setBirthPlace(user.getBirthPlace());
-            cm.setSex(user.getSex()+"");
-            cm.setAddress(user.getAddress());
-            data.add(cm);
+          if(user!=null){
+              cm.setId(user.getId());
+              cm.setFirstName(user.getFirstName());
+              cm.setLastName(user.getLastName());
+              cm.setBirthDate(user.getBirthDate().toString());
+              cm.setBirthPlace(user.getBirthPlace());
+              cm.setSex(user.getSex()+"");
+              cm.setAddress(user.getAddress());
+              data.add(cm);
+          }
         return data;
     }
 
@@ -295,5 +359,27 @@ public class search_controller extends communs implements Initializable{
             data.add(cm);
         }
         return data;
+    }
+
+    public void onDeletePressed(ActionEvent actionEvent) {
+        Usermaster usermaster = searchTable.getSelectionModel().getSelectedItem();
+        ButtonType delete = new ButtonType("Delete", ButtonBar.ButtonData.OK_DONE);
+        ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Do you really want to delete this user ? ",delete,cancel);
+        alert.setTitle("User Delete");
+        alert.setHeaderText(null);
+        Optional<ButtonType> optional = alert.showAndWait();
+        if (optional.get() == delete){
+            searchTable.getItems().remove(usermaster);
+            dbHelper.deleteUser(usermaster.getId());
+
+        }
+
+
+    }
+
+    public void onUpdatepressed(ActionEvent actionEvent) {
+        Usermaster usermaster = searchTable.getSelectionModel().getSelectedItem();
+
     }
 }
