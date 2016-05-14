@@ -6,6 +6,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.util.ArrayList;
+
 public class Usermaster {
 
 
@@ -16,6 +18,16 @@ public class Usermaster {
     private SimpleStringProperty birthPlace = new SimpleStringProperty();
     private SimpleStringProperty sex = new SimpleStringProperty();
     private SimpleStringProperty address = new SimpleStringProperty();
+
+    public ArrayList<String> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(ArrayList<String> photos) {
+        this.photos = photos;
+    }
+
+    private ArrayList<String> photos = new ArrayList<>();
 
     public String getId() {
         return id.get();

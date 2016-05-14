@@ -27,7 +27,7 @@
             xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controllers.search_controller" stylesheets="/ui/style/style_search.css">
     <top>
-        <ToolBar fx:id="r">
+        <ToolBar>
             <items>
                 <ImageView fitHeight="230.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -87,13 +87,11 @@
                                         <Image url="/ui/images/search_white.png"/>
                                     </ImageView>
                                 </graphic>
-                            </JFXButton>
-                        </HBox>
+                            </JFXButton>                        </HBox>
                     </bottom>
                 </BorderPane>
             </items>
-        </ToolBar>
-    </top>
+        </ToolBar>    </top>
     <left>
         <fx:include source="communs/left_list.fxml"/>
     </left>
@@ -114,25 +112,15 @@
                    </TableView>
             </Pane>
            <HBox alignment="BOTTOM_CENTER" spacing="80">
-               <JFXButton text="Delete" buttonType="RAISED" onAction="#onDeleteClick"
+               <JFXButton text="Delete" buttonType="RAISED" onAction="#onDeletePressed"
                           style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
-                   <HBox.margin>
-                       <Insets top="20"/>
-                   </HBox.margin>
-                   <graphic>
-                       <ImageView fitHeight="15" fitWidth="15">
-                           <Image url="/ui/images/delete.png"/>
-                       </ImageView>
-                   </graphic>
+                <HBox.margin>
+                    <Insets top="20"/>
+                </HBox.margin>
                </JFXButton>
-               <JFXButton text="Update" buttonType="RAISED" onAction="#onUpdateClick"
-                          style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
-                   <graphic>
-                       <ImageView fitHeight="15" fitWidth="15">
-                           <Image url="/ui/images/update.png"/>
-                       </ImageView>
-                   </graphic>
-               </JFXButton>
+
+               <JFXButton text="Update" buttonType="RAISED" onAction="#onUpdatepressed"
+                          style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white"/>
            </HBox>
        </VBox>
 
