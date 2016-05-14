@@ -190,6 +190,7 @@ public class search_controller extends communs implements Initializable{
             cm.setBirthPlace(u.getBirthPlace());
             cm.setSex(u.getSex()+"");
             cm.setAddress(u.getAddress());
+            cm.setPhotos(u.getPhotos());
             data.add(cm);
         }
         searchTable.setItems(data);
@@ -415,7 +416,8 @@ public class search_controller extends communs implements Initializable{
 
                 Stage stage = new Stage();
                 scene.getStylesheets().add(getClass().getResource("/ui/style/style_settings.css").toExternalForm());
-                stage.initStyle(StageStyle.DECORATED);
+                stage.initStyle(StageStyle.UTILITY);
+                stage.setResizable(false);
 
                 stage.setTitle("Update");
                 stage.setScene(scene);

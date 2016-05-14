@@ -12,12 +12,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controllers.update_controller">
+<?import javafx.scene.layout.FlowPane?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0"
+          prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="controllers.update_controller">
+<BorderPane>
 
     <top>
-        <fx:include source="../communs/toolbar.fxml" fx:id="toolBar"/>
+
     </top>
     <left>
         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
@@ -34,19 +37,14 @@
                 </JFXTextField>
                 <JFXTextField promptText="Last Name" fx:id="updatelName"/>
                 <JFXTextField promptText="First Name" fx:id="updatefName"/>
-                <JFXTextField promptText="Birth Date" fx:id="updatebDate"/>
+                <JFXDatePicker promptText="Birth Date" fx:id="updatebDate"/>
                 <JFXTextField promptText="Birth Place" fx:id="updatebPlace"/>
                 <JFXTextField promptText="Adresse" fx:id="updateAddress"/>
             </children>
-            <JFXButton text="Update" buttonType="RAISED" onAction="#onConfirmUpdate"
-                       style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
-                <graphic>
-                    <ImageView fitHeight="15" fitWidth="15">
-                        <Image url="/ui/images/update.png"/>
-                    </ImageView>
-                </graphic>
-            </JFXButton>
             <HBox>
+                <VBox.margin>
+                    <Insets top="20" />
+                </VBox.margin>
                 <JFXButton text="Upload" buttonType="RAISED" onAction="#onConfirmUpdate"
                            style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
                     <graphic>
@@ -61,10 +59,18 @@
                     </toggleGroup>
                 </JFXRadioButton>
                 <JFXRadioButton toggleGroup="$toggleGroup" text="Delete"/>
-                <JFXRadioButton text="Capture"/>
             </HBox>
+            <JFXButton text="Update" buttonType="RAISED" onAction="#onConfirmUpdate"
+                       style="-fx-background-color: #4c86af;-fx-font-size:14px;-fx-text-fill: white">
+                <graphic>
+                    <ImageView fitHeight="15" fitWidth="15">
+                        <Image url="/ui/images/update.png"/>
+                    </ImageView>
+                </graphic>
+            </JFXButton>
         </VBox>
     </center>
     <bottom>
     </bottom>
 </BorderPane>
+</FlowPane>

@@ -1,5 +1,6 @@
 package controllers;
 
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
 import entities.Usermaster;
@@ -8,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -19,7 +22,7 @@ public class update_controller extends communs implements Initializable {
     @FXML JFXTextField updatelName;
     @FXML JFXTextField updatebPlace;
     @FXML JFXTextField updateAddress;
-    @FXML JFXTextField updatebDate;
+    @FXML JFXDatePicker updatebDate;
 
     private Usermaster usermaster;
 
@@ -34,11 +37,15 @@ public class update_controller extends communs implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        LocalDate localDate = java.sql.Date.valueOf(usermaster.getBirthDate()).toLocalDate();
+        System.out.println();
         updateId.setText(usermaster.getId());
         updatefName.setText(usermaster.getFirstName());
         updatelName.setText(usermaster.getLastName());
-        updatebDate.setText(usermaster.getBirthDate());
+        updatebDate.setValue(localDate);
         updatebPlace.setText(usermaster.getBirthPlace());
         updateAddress.setText(usermaster.getAddress());
-    }
+        System.out.println(usermaster.getPhotos().toArray()[0]);
+
+        }
 }
