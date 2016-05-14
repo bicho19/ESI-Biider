@@ -12,12 +12,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import utils.DBHelper;
 
 import java.net.URL;
@@ -55,7 +60,21 @@ public class search_controller extends communs implements Initializable{
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
                     // set onTableViewItemSelected (DoubleClick)
                     Usermaster rowData = row.getItem();
-                    System.out.println("ID: "+rowData.getId());
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("/ui/layouts/popups/result.fxml"));
+                        Scene scene = new Scene(root);
+
+                        Stage stage = new Stage();
+                        scene.getStylesheets().add(getClass().getResource("/ui/style/style_global.css").toExternalForm());
+                        stage.initStyle(StageStyle.TRANSPARENT);
+
+                        stage.setTitle("ABC");
+                        stage.setScene(scene);
+                        stage.show();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
                 }
             });
             return row ;

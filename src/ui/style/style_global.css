@@ -1,5 +1,5 @@
 .root{
-	-fx-background-color: linear-gradient(to right, #eaeaea,#ffffff);
+	-fx-backgrount-color: linear-gradient(to right, #eaeaea,#ffffff);
 	-fx-font-family: Roboto;	
     src:"/resources/roboto/Roboto-Regular.ttf";
 }
@@ -410,9 +410,7 @@
 	-fx-padding: 5 0 5 0;
 } 
 
-
-
 .jfx-combo-box .combo-box-button-container {
-	-fx-border-color:rgb(180, 180, 180);	
+	-fx-border-color:rgb(180, 180, 180);
 	-fx-border-width: 0 0 2 0;
 }

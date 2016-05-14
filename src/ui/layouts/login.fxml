@@ -22,9 +22,9 @@
     <top>
         <ToolBar fx:id="toolBar" onMouseDragged="#setOnMouseDragged" onMousePressed="#setOnMousePressed"
                  prefHeight="57.0" prefWidth="350.0" BorderPane.alignment="CENTER">
-                <ImageView fitHeight="40.0" fitWidth="200.0" preserveRatio="true" >
-                        <Image url="/ui/images/logo.png" />
-                </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="200.0" preserveRatio="true" >
+                <Image url="/ui/images/logo.png" />
+            </ImageView>
                 <Pane>
                     <fx:define>
                         <Image fx:id="btnImage" url="/ui/images/close_green.png" />

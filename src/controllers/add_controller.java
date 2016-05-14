@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -37,6 +38,8 @@ public class add_controller extends communs implements Initializable{
     @FXML JFXButton btnCapture = new JFXButton();
     @FXML JFXButton btnLoad = new JFXButton();
     @FXML JFXButton btnAdd = new JFXButton();
+    @FXML JFXDatePicker datePicker = new JFXDatePicker();
+    @FXML JFXDialog jfxDialog = new JFXDialog();
 
     // On "Ajouter" button click
     @FXML
@@ -48,7 +51,9 @@ public class add_controller extends communs implements Initializable{
                 Date.getValue() == null || bPlace.getText().equals("") || Address.getText().equals("") || Sex.getSelectionModel().getSelectedItem().equals("")){
             Alert alert = new Alert(Alert.AlertType.ERROR,"Please fill all the information");
                     alert.showAndWait()
-                    .filter(response -> response == ButtonType.OK);        }
+                    .filter(response -> response == ButtonType.OK);
+
+        }
 
         // Test the fields before add to the database
 
@@ -83,6 +88,9 @@ public class add_controller extends communs implements Initializable{
         ObservableList<String> options = FXCollections.observableArrayList();
         options.addAll("Male","Female");
         Sex.setItems(options);
+
+        datePicker.setDefaultColor(Color.rgb(76,134,175));
+
     }
 
 
